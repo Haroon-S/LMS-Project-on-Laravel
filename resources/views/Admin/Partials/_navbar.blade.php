@@ -340,11 +340,22 @@
                                 <div class="bg-gradient px-4 py-3">
                                     <div class="d-flex align-items-center justify-content-between">
                                         <div class="mr-1">
-                                            <h4 class="text-white mb-0">Alice Williams</h4>
-                                            <small class="text-white">Henry@example.com</small>
+                                            <h4 class="text-white mb-0">{{ Auth::user()->name }}</h4>
+                                            <small class="text-white">{{ Auth::user()->email }}</small>
                                         </div>
-                                        <a href="#" class="text-white font-20 tooltip-wrapper" data-toggle="tooltip" data-placement="top" title="" data-original-title="Logout"> <i
-                                                        class="zmdi zmdi-power"></i></a>
+                                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <x-dropdown-link :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                                <!-- <i class="zmdi zmdi-power"></i> -->
+                                <p class="text-white font-20 tooltip-wrapper" data-toggle="tooltip" 
+                                data-placement="top" title="" data-original-title="Logout"> 
+                                <i class="zmdi zmdi-power"></i></p>
+                            </x-dropdown-link>
+                        </form>
+                                        
                                     </div>
                                 </div>
                                 <div class="p-4">
