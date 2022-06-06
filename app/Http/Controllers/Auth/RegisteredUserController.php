@@ -37,18 +37,24 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'picture' => ['required'],
         ]);
+
+        $picture = $request->file("Picture");
+        $user["picture"] = Str::uuid(). '.' .$picture->getClientOriginalExtension();
+        $picture->move("Pictures", $user["picture"]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'picture' => $request->picture,
         ]);
 
         event(new Registered($user));
 
         Auth::login($user);
-        // $user->attachRole($request->role_id);
+        //$user->attachRole($request->role_id);
         $user->attachRole('admin');
 
         return redirect(RouteServiceProvider::HOME);
