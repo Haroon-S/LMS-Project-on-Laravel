@@ -55,7 +55,7 @@
                                                 <a href="account-setting">Account Settings</a>
                                             </li>
                                             <li class="nav-link">
-                                                <a href="admin-teachers-list">Teachers</a>
+                                                <a href="admin-teachers">Teachers</a>
                                             </li>
                                             <li class="nav-link">
                                                 <a href="contacts">Contacts</a>
@@ -438,21 +438,13 @@
                     <li>
                         <a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><i class="nav-icon ti ti-layers"></i><span class="nav-title">Pages</span><span class="nav-label label label-primary">12</span></a>
                         <ul aria-expanded="false">
-                            <li> <a href="account-settings">Account Settings</a> </li>
-                            <li> <a href="admin-teachers-list">Teachers</a> </li>
+                            <li> <a href="account-setting">Account Settings</a> </li>
+                            <li> <a href="admin-teachers">Teachers</a> </li>
                             <li> <a href="contacts">Contacts</a> </li>
                             <li> <a href="employees">Employees</a> </li>
                             <li> <a href="faq">FAQ</a> </li>
                             <li> <a href="file-manager">File Manager</a> </li>
                             <li> <a href="coming-soon">Coming Soon</a> </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><i class="nav-icon ti ti-key"></i><span class="nav-title">Auth</span></a>
-                        <ul aria-expanded="false">
-                            <li> <a href="auth-login">Login</a> </li>
-                            <li> <a href="auth-register">Register</a> </li>
-                            <li> <a href="auth-lockscreen">Lock Screen</a> </li>
                         </ul>
                     </li>
                     

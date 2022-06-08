@@ -28,9 +28,6 @@ require __DIR__.'/auth.php';
 
 Route::get('Home', [AdminController::class,'index']);
 Route::get('app-chat', [AdminController::class,'appChat']);
-Route::get('auth-lock-screen', [AdminController::class,'authLock']);
-Route::get('auth-login', [AdminController::class,'authLogin']);
-Route::get('auth-register', [AdminController::class,'authRegister']);
 Route::get('calendar-full', [AdminController::class,'calendarFull']);
 Route::get('calendar-list', [AdminController::class,'calendarList']);
 Route::get('admin-courses', [AdminController::class,'indexCourses']);
@@ -48,7 +45,11 @@ Route::get('empolyees', [AdminController::class,'employees']);
 Route::get('contacts', [AdminController::class,'contacts']);
 Route::get('admin-faq', [AdminController::class,'faq']);
 Route::get('file-manager', [AdminController::class,'fileManager']);
-Route::get('admin-teachers-list', [AdminController::class,'teachers']);
+Route::get("DestroyStudent/{user}",[App\Http\Controllers\Auth\RegisteredUserController::class,"destroyStudent"]);
+Route::get("DestroyTeacher/{user}",[App\Http\Controllers\Auth\RegisteredUserController::class,"destroyTeacher"]);
+Route::get('StudentsPDF', [App\Http\Controllers\Auth\RegisteredUserController::class, 'studentsPdf']);
+Route::get('TeachersPDF', [App\Http\Controllers\Auth\RegisteredUserController::class, 'teachersPdf']);
+Route::get('CoursesPDF', [App\Http\Controllers\Auth\RegisteredUserController::class, 'coursesPdf']);
 
 Route::get('/', [PageController::class, 'home']);
 

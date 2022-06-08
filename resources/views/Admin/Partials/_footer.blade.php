@@ -29,10 +29,10 @@
     </footer>
     <!-- end footer -->
 
-     <!-- plugins -->
-     <script src="assets/js/vendors.js"></script>
+    <!-- plugins -->
+    <script src="assets/js/vendors.js"></script>
 
-     <!-- custom app -->
-     <script src="assets/js/app.js"></script>
+    <!-- custom app -->
+    <script src="assets/js/app.js"></script>
 </body>
 </html>
