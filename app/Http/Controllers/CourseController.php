@@ -14,7 +14,8 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
+        $courses=Course::all();
+        return view("Admin/Pages/index-courses", compact("courses"));
     }
 
     /**
@@ -80,6 +81,11 @@ class CourseController extends Controller
      */
     public function destroy(Course $course)
     {
-        //
+        if(File::exists('Thumbnails/'.$course->thumbnail)) {
+            File::delete('Thumbnails/'.$course->thumbnail);
+        }
+
+        $course->delete();
+        return redirect(url('admin-courses'));
     }
 }
