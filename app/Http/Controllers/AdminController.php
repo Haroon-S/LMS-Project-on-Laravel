@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use App\Models\User;
+use App\Models\Course;
 use App\Models\Role;
 use Illuminate\Http\Request;
 
@@ -31,17 +32,9 @@ class AdminController extends Controller
     {
         return view("Admin/Pages/calendar-list");
     }
-    public function indexCourses()
-    {
-        return view("Admin/Pages/index-courses");
-    }
     public function indexRequests()
     {
         return view("Admin/Pages/index-requests");
-    }
-    public function indexReviews()
-    {
-        return view("Admin/Pages/index-reviews");
     }
     public function indexStudents()
     {
@@ -73,10 +66,6 @@ class AdminController extends Controller
     public function accountSetting()
     {
         return view("Admin/Pages/page-account-setting");
-    }
-    public function comingSoon()
-    {
-        return view("Admin/Pages/page-coming-soon");
     }
     public function contacts()
     {

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Header</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="Admin template that can be used to build dashboards for CRM, CMS, etc." />
@@ -60,9 +59,9 @@
                                             <li class="nav-link">
                                                 <a href="contacts">Contacts</a>
                                             </li>
-                                            <li class="nav-link">
+                                            <!--<li class="nav-link">
                                                 <a href="coming-soon">Coming Soon</a>
-                                            </li>
+                                            </li>-->
                                         </ul>
                                     </div>
                                     <div class="col-sm-4 p-20">
@@ -410,7 +409,7 @@
                         </a>
                         <ul aria-expanded="false">
                             <li class="active"> <a href='Home'>Default</a> </li>
-                            <li> <a href='admin-requests'>Requests</a> </li>
+                            <!--<li> <a href='admin-requests'>Requests</a> </li>-->
                             <li> <a href='admin-teachers'>Teachers</a> </li>
                             <li> <a href='admin-students'>Students</a> </li>
                             <li> <a href='admin-courses'>Courses</a> </li>
@@ -441,10 +440,10 @@
                             <li> <a href="account-setting">Account Settings</a> </li>
                             <li> <a href="admin-teachers">Teachers</a> </li>
                             <li> <a href="contacts">Contacts</a> </li>
-                            <li> <a href="employees">Employees</a> </li>
-                            <li> <a href="faq">FAQ</a> </li>
+                            <li> <a href="employees">Team</a> </li>
+                            <li> <a href="admin-faq">FAQ</a> </li>
                             <li> <a href="file-manager">File Manager</a> </li>
-                            <li> <a href="coming-soon">Coming Soon</a> </li>
+                            <!--<li> <a href="coming-soon">Coming Soon</a> </li>-->
                         </ul>
                     </li>
                     

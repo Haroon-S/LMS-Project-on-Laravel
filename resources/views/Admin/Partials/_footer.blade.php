@@ -15,6 +15,11 @@
     <link rel="stylesheet" type="text/css" href="assets/css/vendors.css" />
     <!-- app style -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <style>
+        .footer{
+            position:fixed;
+        }
+    </style>
 </head>
 <body>
     <footer class="footer">
