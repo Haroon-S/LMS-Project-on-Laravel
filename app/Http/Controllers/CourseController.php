@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Course;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Http
+
 
 class CourseController extends Controller
 {
@@ -18,8 +20,9 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $courses=Course::all();
-        return view("Admin/Pages/index-courses", compact("courses"));
+        $students = User::whereRoleIs('student')->get();
+        $uploadedCourse = Course::all();
+        return view('pages/home', compact("uploadedCourse", "students"));
     }
 
     public function teacherCourses()
@@ -37,7 +40,6 @@ class CourseController extends Controller
         $courses=Course::all();
         return view("Teacher/Pages/index-students", compact("courses"));
     }
-
     /**
      * Show the form for creating a new resource.
      *

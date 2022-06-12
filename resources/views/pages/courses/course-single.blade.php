@@ -193,16 +193,23 @@ What our customers said? (3 Feedbacks)
 </div>
 </div>
 <hr class="invis">
+
+
+
+
 <div id="owl-featured" class="owl-custom">
+
+
+@forelse ($uploadedCourse as $key=>$uploadedCourse)
 <div class="owl-featured">
 <div class="shop-item-list entry">
 <div class="">
-<img src="upload/xcourse_01.png.pagespeed.ic.XTOvCuUmZu.png" alt="">
+<img src="upload/{{$uploadedCourse->course_thumbnail}}" alt="">
 <div class="magnifier">
 </div>
 </div>
 <div class="shop-item-title clearfix">
-<h4><a href="course-single">Learn Web Design & Development</a></h4>
+<h4><a href="course-single/{{$uploadedCourse->id}}">{{$uploadedCourse->course_title}}</a></h4>
 <div class="shopmeta">
 <span class="pull-left">12 Student</span>
 <div class="rating pull-right">
@@ -215,12 +222,19 @@ What our customers said? (3 Feedbacks)
 </div>
 </div>
 <div class="visible-buttons">
-<a title="Add to Cart" href="page-shop-cart"><span class="fa fa-cart-arrow-down"></span></a>
-<a title="Read More" href="course-single"><span class="fa fa-search"></span></a>
+<a title="Add to Cart" href="page-shop-cart/{{$uploadedCourse->id}}"><span class="fa fa-cart-arrow-down"></span></a>
+<a title="Read More" href="course-single/{{$uploadedCourse->id}}"><span class="fa fa-search"></span></a>
 </div>
 </div>
 </div>
-<div class="owl-featured">
+@empty
+
+@endforelse
+
+
+
+
+<!-- <div class="owl-featured">
 <div class="shop-item-list entry">
 <div class="">
 <img src="upload/xcourse_02.png.pagespeed.ic.PL7Wu2UcSB.png" alt="">
@@ -297,7 +311,12 @@ What our customers said? (3 Feedbacks)
 <a title="Read More" href="course-single"><span class="fa fa-search"></span></a>
 </div>
 </div>
-</div>
+</div> -->
+
+
+
+
+
 </div>
 </div>
 </section>

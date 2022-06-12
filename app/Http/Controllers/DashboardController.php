@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Course;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -9,7 +11,9 @@ class DashboardController extends Controller
     public function index()
     {
         if(Auth::user()->hasRole('student')){
-             return view('HSS-Views/studentdashboard');
+          $students = User::whereRoleIs('student')->get();
+          $uploadedCourse = Course::all();
+          return view('pages/home', compact("uploadedCourse", "students"));
         }elseif(Auth::user()->hasRole('teacher')){
              return view('HSS-Views/teacherdashboard');
         }elseif(Auth::user()->hasRole('admin')){

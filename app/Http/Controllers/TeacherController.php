@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Course;
 use DB;
 
 class TeacherController extends Controller
@@ -90,7 +90,7 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**

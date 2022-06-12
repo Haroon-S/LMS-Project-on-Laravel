@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\TeacherController;
@@ -20,7 +21,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 |
 */
 
-Route::get('/', function () {
+Route::get('lara', function () {
     return view('welcome');
 });
 
@@ -81,9 +82,15 @@ Route::post("store-course/{user}",[CourseController::class,"store"]);
 Route::get("DestroyCourse/{course}",[CourseController::class,"destroyTeacher"]);
 
 
-Route::get('/', [PageController::class, 'home']);
 
-Route::get('home', [PageController::class, 'home']);
+
+Route::get('/', [CourseController::class, 'index']);
+
+Route::get('home', [CourseController::class, 'index']);
+
+
+Route::get('QT', [StudentController::class, 'index']);
+
 
 Route::get('about', [PageController::class, 'about']);
 
