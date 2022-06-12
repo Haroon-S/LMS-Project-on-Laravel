@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Str;
 use PDF;
+use DB;
 
 class RegisteredUserController extends Controller
 {
@@ -58,10 +59,9 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
-
-     
+      
         $user->attachRole($request->role_id);
-        // $user->attachRole('admin');
+        //$user->attachRole('admin');
 
         return redirect(RouteServiceProvider::HOME);
     }
@@ -88,14 +88,20 @@ class RegisteredUserController extends Controller
 
     public function studentsPdf()
     {
-        $users=User::all();
+        $users = DB::table('users')
+        ->leftJoin('role_user', 'users.id', '=', 'role_user.user_id')
+        ->where('role_user.role_id', '3')
+        ->get();
         $pdf=PDF::loadView("Admin/PDF/Students", compact("users"))->setOptions(['defaultFont' => 'sans-serif']);
         return $pdf->download("students.pdf");
     }
 
     public function teachersPdf()
     {
-        $users=User::all();
+        $users = DB::table('users')
+        ->leftJoin('role_user', 'users.id', '=', 'role_user.user_id')
+        ->where('role_user.role_id', '2')
+        ->get();
         $pdf=PDF::loadView("Admin/PDF/Teachers", compact("users"))->setOptions(['defaultFont' => 'sans-serif']);
         return $pdf->download("teachers.pdf");
     }
@@ -105,6 +111,51 @@ class RegisteredUserController extends Controller
         $courses=Course::all();
         $pdf=PDF::loadView("Admin/PDF/Courses", compact("courses"));
         return $pdf->download("courses.pdf");
+    }
+
+    public function update(Request $request, User $user)
+    {
+        $data = $request->validate([
+            "name" => "required|max:50",
+            "email" => "required",
+        ]);
+
+        if( $request->file("picture") ){
+
+            //delete old file from dir
+            File::delete('Pictures/'.$user->picture);
+
+            // put new file in dir
+            $file = $request->file('picture');
+            $data['picture'] = Str::uuid(). '.' .$file->getClientOriginalExtension();
+            $file->move('Pictures/', $data['picture']);
+        }
+
+        $user->update($data);
+
+        return redirect(url('account-setting'));
+    }
+
+    public function updatePassword(Request $request, User $user)
+    {
+        $password = $request->validate([
+            "password" => "required",
+        ]);
+
+        $user->update($password);
+
+        return redirect(url('logout'));
+    }
+
+    public function destroy(Request $request)
+    {
+        Auth::guard('web')->logout();
+        
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/login');
     }
 
 }

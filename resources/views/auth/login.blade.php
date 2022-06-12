@@ -51,6 +51,10 @@
                     {{ __('Log in') }}
                 </x-button>
             </div>
+
+            <div class="mt-4">
+                <a href="register" class="block mt-1 w-full">Don't have an account? <b><u>Register<u></b></a>
+            </div>
         </form>
     </x-auth-card>
 </x-guest-layout>

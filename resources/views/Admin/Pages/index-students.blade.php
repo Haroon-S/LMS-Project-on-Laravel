@@ -1,6 +1,6 @@
 @extends('Admin/Layout/main')
 
-@section('title','Home')
+@section('title','Students List')
 
 @section('contents')
 <!DOCTYPE html>
