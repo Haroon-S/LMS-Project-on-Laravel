@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin;
-use App\Models\User;
-use App\Models\Course;
-use App\Models\Role;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+use App\Models\User;
 use DB;
 
-class AdminController extends Controller
+class TeacherController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,32 +15,19 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view("Admin/Pages/index");
+        return view("Teacher/Pages/index");
     }
-    
     public function appChat()
     {
-        return view("Admin/Pages/app-chat");
+        return view("Teacher/Pages/app-chat");
     }
     public function calendarFull()
     {
-        return view("Admin/Pages/calendar-full");
+        return view("Teacher/Pages/calendar-full");
     }
     public function calendarList()
     {
-        return view("Admin/Pages/calendar-list");
-    }
-    public function indexRequests()
-    {
-        return view("Admin/Pages/index-requests");
-    }
-    public function indexStudents()
-    {
-        $users = DB::table('users')
-        ->leftJoin('role_user', 'users.id', '=', 'role_user.user_id')
-        ->where('role_user.role_id', '3')
-        ->get();
-        return view("Admin/Pages/index-students", compact("users"));
+        return view("Teacher/Pages/calendar-list");
     }
     public function indexTeachers()
     {
@@ -53,44 +36,51 @@ class AdminController extends Controller
         ->leftJoin('role_user', 'users.id', '=', 'role_user.user_id')
         ->where('role_user.role_id', '2')
         ->get();
-        return view("Admin/Pages/index-teachers", compact("users"));
+        return view("Teacher/Pages/index-teachers", compact("users"));
     }
     public function mailInbox()
     {
-        return view("Admin/Pages/mail-inbox");
+        return view("Teacher/Pages/mail-inbox");
     }
     public function mapsGoogle()
     {
-        return view("Admin/Pages/maps-google");
+        return view("Teacher/Pages/maps-google");
     }
     public function mapsMapael()
     {
-        return view("Admin/Pages/maps-mapael");
+        return view("Teacher/Pages/maps-mapael");
     }
     public function mapsVector()
     {
-        return view("Admin/Pages/maps-vector");
+        return view("Teacher/Pages/maps-vector");
     }
     public function accountSetting()
     {
-        return view("Admin/Pages/page-account-setting");
+        return view("Teacher/Pages/page-account-setting");
     }
     public function contacts()
     {
-        $users=User::all();
-        return view("Admin/Pages/page-contacts", compact("users"));
+        $users = DB::table('users')
+        ->leftJoin('role_user', 'users.id', '=', 'role_user.user_id')
+        ->where('role_user.role_id', '1')
+        ->get();
+        return view("Teacher/Pages/page-contacts", compact("users"));
     }
     public function employees()
     {
-        return view("Admin/Pages/page-employees");
+        return view("Teacher/Pages/page-employees");
     }
     public function faq()
     {
-        return view("Admin/Pages/page-faq");
+        return view("Teacher/Pages/page-faq");
     }
     public function fileManager()
     {
-        return view("Admin/Pages/page-file-manager");
+        return view("Teacher/Pages/page-file-manager");
+    }
+    public function createCourse()
+    {
+        return view("Teacher/Pages/create-course");
     }
 
     /**
@@ -100,7 +90,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -117,10 +107,10 @@ class AdminController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Admin $admin)
+    public function show($id)
     {
         //
     }
@@ -128,10 +118,10 @@ class AdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Admin $admin)
+    public function edit($id)
     {
         //
     }
@@ -140,10 +130,10 @@ class AdminController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Admin  $admin
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Admin $admin)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -151,16 +141,11 @@ class AdminController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Admin $admin)
+    public function destroy($id)
     {
-        /*if(File::exists('Pictures/'.$admin->picture)) {
-            File::delete('Pictures/'.$admin->picture);
-        }
-
-        $admin->delete();
-        return redirect(url('admin-students'));*/
+        //
     }
 }

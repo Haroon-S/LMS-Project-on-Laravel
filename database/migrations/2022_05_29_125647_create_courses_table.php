@@ -15,14 +15,13 @@ class CreateCoursesTable extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('role_id');
-            $table->foreign('role_id')->references('id')->on('roles');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('course_title');
-            $table->string('course_discription');
+            $table->string('course_description');
             $table->string('teacher_name');
-            $table->integer('number_of_students');
+            $table->string('course_category');
+            $table->tinyInteger('number_of_students')->default('0');
             $table->String("thumbnail");
             $table->timestamps();
         });
