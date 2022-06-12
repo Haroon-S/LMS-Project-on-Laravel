@@ -20,24 +20,23 @@
 <a class="social" href="#"><i class="fa fa-google-plus"></i></a>
 <a class="social" href="#"><i class="fa fa-linkedin"></i></a>
 </li>
-<li class="dropdown">
-<a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-lock"></i> Login & Register</a>
-<div class="dropdown-menu">
-<form method="post">
-<div class="form-title">
-<h4>Login Area</h4>
-<hr>
-</div>
-<input class="form-control" type="text" name="username" placeholder="User Name">
-<div class="formpassword">
-<input class="form-control" type="password" name="password" placeholder="******">
-</div>
-<div class="clearfix"></div>
-<button type="submit" class="btn btn-block btn-primary">Login</button>
-<hr>
-<h4><a href="#">Create an Account</a></h4>
-</form>
-</div>
+<li >
+<!-- <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="fa fa-lock"></i> Login </a> -->
+
+@if (Route::has('login'))
+                <!-- <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block"> -->
+                    @auth
+                    <span style="font-weight:700; color: white;" >{{ Auth::user()->name }}</span> 
+                    @else
+                    <i class="fa fa-lock "></i>
+                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+
+                        <!-- @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                        @endif -->
+                    @endauth
+                <!-- </div> -->
+            @endif
 </li>
 </ul>
 </div>

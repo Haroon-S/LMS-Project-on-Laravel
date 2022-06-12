@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
 use App\Models\Course;
 use Illuminate\Http\Request;
-use App\Models\User;
-class CourseController extends Controller
+
+class TeacherController extends DashboardController
 {
     /**
      * Display a listing of the resource.
@@ -14,17 +14,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-
-        $students = User::whereRoleIs('student')->get();
-        $uploadedCourse = Course::all();
-        return view('pages/home', compact("uploadedCourse", "students"));
-    }
-
-
-    public function count($id)
-    {
-        $countCourse = Course::all();
-        return view('pages/home', compact("UploadedCourse"));
+        return view('HSS-Views/teacherdashboard');
     }
 
     /**
@@ -51,10 +41,10 @@ class CourseController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Course  $course
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Course $course)
+    public function show($id)
     {
         //
     }
@@ -62,10 +52,10 @@ class CourseController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Course  $course
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Course $course)
+    public function edit($id)
     {
         //
     }
@@ -74,10 +64,10 @@ class CourseController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Course  $course
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Course $course)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -85,10 +75,10 @@ class CourseController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Course  $course
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Course $course)
+    public function destroy($id)
     {
         //
     }

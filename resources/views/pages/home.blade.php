@@ -122,18 +122,29 @@
 </div>
 </div>
 </div>
+
+
+
+
 <div id="owl-featured" class="owl-custom">
+
+
+
+
+
+@forelse ($uploadedCourse as $key=>$uploadedCourse)
+<!-- <h5 class="card-title d-none">{{$key+1}}</h5> -->
 <div class="owl-featured">
 <div class="shop-item-list entry">
 <div class="">
-<img src="upload/xcourse_01.png.pagespeed.ic.XTOvCuUmZu.png" alt="">
+<img src="upload/{{$uploadedCourse->course_thumbnail}}" alt="">
 <div class="magnifier">
 </div>
 </div>
 <div class="shop-item-title clearfix">
-<h4><a href="course-single">Learn Web Design & Development</a></h4>
+<h4><a href="course-single/{{$uploadedCourse->id}}">{{$uploadedCourse->course_title}}</a></h4>
 <div class="shopmeta">
-<span class="pull-left">12 Student</span>
+<span class="pull-left">{{$uploadedCourse->course_discription}}</span>
 <div class="rating pull-right">
 <i class="fa fa-star"></i>
 <i class="fa fa-star"></i>
@@ -144,12 +155,22 @@
 </div>
 </div>
 <div class="visible-buttons">
-<a title="Add to Cart" href="page-shop-cart"><span class="fa fa-cart-arrow-down"></span></a>
-<a title="Read More" href="course-single"><span class="fa fa-search"></span></a>
+<a title="Add to Cart" href="page-shop-cart/{{$uploadedCourse->id}}"><span class="fa fa-cart-arrow-down"></span></a>
+<a title="Read More" href="course-single/{{$uploadedCourse->id}}"><span class="fa fa-search"></span></a>
 </div>
 </div>
 </div>
-<div class="owl-featured">
+@empty
+
+@endforelse
+
+
+
+
+
+
+
+<!-- <div class="owl-featured">
 <div class="shop-item-list entry">
 <div class="">
 <img src="upload/xcourse_02.png.pagespeed.ic.PL7Wu2UcSB.png" alt="">
@@ -226,7 +247,11 @@
 <a title="Read More" href="course-single"><span class="fa fa-search"></span></a>
 </div>
 </div>
-</div>
+</div> -->
+
+
+
+
 </div>
 </div>
 </section>
@@ -496,12 +521,25 @@
 </div>
 </div>
 </div>
+
+
+
+
+
+
+
+
 <div class="row blog-widget">
+
+
+
+@forelse ($uploadedCourse as $key=>$uploadedCourse)
 <div class="col-md-4 col-sm-6">
 <div class="blog-wrapper">
 <div class="blog-title">
+<!-- <h5 class="card-title d-none">{{$key+1}}</h5> -->
 <a class="category_title" href="#" title="">Digital Marketing</a>
-<h2><a href="single" title="">Best Learning Management System for Ever</a></h2>
+<h2><a href="single/{{$uploadedCourse->id}}" title="">{{$uploadedCourse->course_title}}</a></h2>
 <div class="post-meta">
 <span>
 <i class="fa fa-user"></i>
@@ -513,19 +551,28 @@
 </span>
 <span>
 <i class="fa fa-comments"></i>
-<a href="#">19 Comments</a>
+<a href="#">19 Reviews</a>
 </span>
 </div>
 </div>
 <div class="blog-image">
-<a href="single.html" title=""><img src="upload/xblog_01.jpg.pagespeed.ic.2jVY1j1OMe.jpg" alt="" class="img-responsive"></a>
+<a href="single/{{$uploadedCourse->id}}" title=""><img src="upload/{{$uploadedCourse->course_thumbnail}}" alt="" class="img-responsive"></a>
 </div>
 <div class="blog-desc">
-<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since theown printer took.</p>
-<a href="single.html" class="btn btn-default btn-block">Read More</a>
+<p>{{$uploadedCourse->course_discription}}</p>
+<a href="single/{{$uploadedCourse->id}}" class="btn btn-default btn-block">View More</a>
 </div>
 </div>
 </div>
+@empty
+
+@endforelse
+
+
+
+
+
+<!-- 
 <div class="col-md-4 col-sm-6">
 <div class="blog-wrapper">
 <div class="blog-title">
@@ -555,6 +602,9 @@
 </div>
 </div>
 </div>
+
+
+
 <div class="col-md-4 col-sm-6">
 <div class="blog-wrapper">
 <div class="blog-title">
@@ -583,7 +633,12 @@
 <a href="single" class="btn btn-default btn-block">Read More</a>
 </div>
 </div>
-</div>
+</div> -->
+
+
+
+
+
 </div>
 </div>
 </section>
@@ -597,16 +652,30 @@
 </div>
 </div>
 </div>
+
+
 <div class="row">
+
+
+
+@forelse ($students as $key=>$students)
 <div class="col-lg-4 col-md-4 col-sm-12">
 <div class="testimonial">
+<!-- <h5 class="card-title d-none">{{$key+1}}</h5> -->
 <img class="alignleft img-circle" src="upload/xstudent_01.png.pagespeed.ic.756JwMcqdq.png" alt="">
 <p>Lorem Ipsum is simply dummy text of the printing and industry. </p>
 <div class="testimonial-meta">
-<h4>John DOE <small><a href="#">.com</a></small></h4>
+<h4>{{$students->name}}</h4>
 </div>
 </div>
 </div>
+@empty
+
+@endforelse
+
+
+
+<!-- 
 <div class="col-lg-4 col-md-4 col-sm-12">
 <div class="testimonial">
 <img class="alignleft img-circle" src="upload/xstudent_02.png.pagespeed.ic.y-PM-y4pVj.png" alt="">
@@ -624,8 +693,17 @@
 <h4>Mark BOBS <small><a href="#">tutsplus.com</a></small></h4>
 </div>
 </div>
+</div> -->
+
+
+
+
 </div>
-</div>
+
+
+
+
+
 <div class="button-wrapper text-center">
 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since<br> the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
 <a href="#" class="btn btn-default border-radius"><i class="fa fa-sign-in"></i> Join Us Today</a> &nbsp;&nbsp;&nbsp;&nbsp; <a href="#" class="btn btn-primary"><i class="fa fa-download"></i> Download PDF</a>

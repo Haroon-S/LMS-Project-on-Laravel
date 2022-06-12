@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +17,7 @@ use App\Http\Controllers\PageController;
 |
 */
 
-Route::get('/', function () {
+Route::get('lara', function () {
     return view('welcome');
 });
 
@@ -50,9 +52,15 @@ Route::get('admin-faq', [AdminController::class,'faq']);
 Route::get('file-manager', [AdminController::class,'fileManager']);
 Route::get('admin-teachers-list', [AdminController::class,'teachers']);
 
-Route::get('/', [PageController::class, 'home']);
 
-Route::get('home', [PageController::class, 'home']);
+
+Route::get('/', [CourseController::class, 'index']);
+
+Route::get('home', [CourseController::class, 'index']);
+
+
+Route::get('QT', [StudentController::class, 'index']);
+
 
 Route::get('about', [PageController::class, 'about']);
 

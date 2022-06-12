@@ -136,7 +136,32 @@
 <li><a href="contact">Contact</a></li>
 </ul>
 <ul class="nav navbar-nav navbar-right">
-<li><a class="btn btn-primary" href="course-login"><i class="fa fa-sign-in"></i> Register Now</a></li>
+<!-- <li><a class="btn btn-primary" href="course-login"><i class="fa fa-sign-in"></i> Register Now</a></li> -->
+<li> <button class="btn btn-primary">  
+@if (Route::has('login'))
+                    @auth
+                   
+                        <!-- Authentication -->
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+
+                            <x-dropdown-link :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                                <span style="color: white;">{{ __('Log Out') }}</span>
+                            </x-dropdown-link>
+                        </form>
+                    @else
+                        <!-- <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a> -->
+
+                        @if (Route::has('register'))
+                        <i class="fa fa-sign-in"></i> 
+                            <a style="color: white;" href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register Now</a>
+                        @endif
+                    @endauth
+            @endif
+            </button>
+</li>
 </ul>
 </div>
 </div>

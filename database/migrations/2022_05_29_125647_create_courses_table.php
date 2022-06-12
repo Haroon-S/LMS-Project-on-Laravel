@@ -20,6 +20,7 @@ class CreateCoursesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('course_title');
+            $table->string('course_thumbnail');
             $table->string('course_discription');
             $table->string('teacher_name');
             $table->integer('number_of_students');
