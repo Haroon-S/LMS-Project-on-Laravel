@@ -120,7 +120,7 @@ Route::get('course-login', [PageController::class, 'course_login']);
 
 Route::get('course-quiz', [PageController::class, 'course_quiz']);
 
-Route::get('course-single', [PageController::class, 'course_single']);
+Route::get('course-single/{$uploadedCourse}', [PageController::class, 'course_single']);
 
 Route::get('course-testimonials', [PageController::class, 'course_testimonials']);
 

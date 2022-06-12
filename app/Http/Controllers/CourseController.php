@@ -9,8 +9,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http
-
-
+  
 class CourseController extends Controller
 {
     /**
@@ -89,7 +88,8 @@ class CourseController extends Controller
      */
     public function show(Course $course)
     {
-        //
+        $uploadedCourse = Course::all();
+        return view('pages/courses/course-single', compact("course","uploadedCourse"));
     }
 
     /**
