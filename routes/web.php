@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CourseController;
 
@@ -17,7 +18,7 @@ use App\Http\Controllers\CourseController;
 |
 */
 
-Route::get('/', function () {
+Route::get('lara', function () {
     return view('welcome');
 });
 
@@ -55,9 +56,15 @@ Route::get("DestroyCourse/{course}",[CourseController::class,"destroy"]);
 Route::get("DestroyReview/{review}",[ReviewController::class,"destroy"]);
 
 
-Route::get('/', [PageController::class, 'home']);
 
-Route::get('home', [PageController::class, 'home']);
+
+Route::get('/', [CourseController::class, 'index']);
+
+Route::get('home', [CourseController::class, 'index']);
+
+
+Route::get('QT', [StudentController::class, 'index']);
+
 
 Route::get('about', [PageController::class, 'about']);
 

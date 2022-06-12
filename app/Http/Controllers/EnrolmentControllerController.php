@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Course;
+use App\Models\EnrolmentController;
 use Illuminate\Http\Request;
-use App\Models\User;
-class CourseController extends Controller
+
+class EnrolmentControllerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +14,8 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $students = User::whereRoleIs('student')->get();
-        $uploadedCourse = Course::all();
-        return view('pages/home', compact("uploadedCourse", "students"));
+        //
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -44,10 +41,10 @@ class CourseController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Course  $course
+     * @param  \App\Models\EnrolmentController  $enrolmentController
      * @return \Illuminate\Http\Response
      */
-    public function show(Course $course)
+    public function show(EnrolmentController $enrolmentController)
     {
         //
     }
@@ -55,10 +52,10 @@ class CourseController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Course  $course
+     * @param  \App\Models\EnrolmentController  $enrolmentController
      * @return \Illuminate\Http\Response
      */
-    public function edit(Course $course)
+    public function edit(EnrolmentController $enrolmentController)
     {
         //
     }
@@ -67,10 +64,10 @@ class CourseController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Course  $course
+     * @param  \App\Models\EnrolmentController  $enrolmentController
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Course $course)
+    public function update(Request $request, EnrolmentController $enrolmentController)
     {
         //
     }
@@ -78,16 +75,11 @@ class CourseController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Course  $course
+     * @param  \App\Models\EnrolmentController  $enrolmentController
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Course $course)
+    public function destroy(EnrolmentController $enrolmentController)
     {
-        if(File::exists('Thumbnails/'.$course->thumbnail)) {
-            File::delete('Thumbnails/'.$course->thumbnail);
-        }
-
-        $course->delete();
-        return redirect(url('admin-courses'));
+        //
     }
 }
