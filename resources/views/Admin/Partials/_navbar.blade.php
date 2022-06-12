@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Header</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="Admin template that can be used to build dashboards for CRM, CMS, etc." />
@@ -55,14 +54,14 @@
                                                 <a href="account-setting">Account Settings</a>
                                             </li>
                                             <li class="nav-link">
-                                                <a href="admin-teachers-list">Teachers</a>
+                                                <a href="admin-teachers">Teachers</a>
                                             </li>
                                             <li class="nav-link">
                                                 <a href="contacts">Contacts</a>
                                             </li>
-                                            <li class="nav-link">
+                                            <!--<li class="nav-link">
                                                 <a href="coming-soon">Coming Soon</a>
-                                            </li>
+                                            </li>-->
                                         </ul>
                                     </div>
                                     <div class="col-sm-4 p-20">
@@ -333,7 +332,7 @@
                         </li>
                         <li class="nav-item dropdown user-profile">
                             <a href="javascript:void(0)" class="nav-link dropdown-toggle " id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="assets/img/avtar/02.jpg" alt="avtar-img">
+                                <img src="Pictures/{{Auth::user()->picture}}" alt="avtar-img">
                                 <span class="bg-success user-status"></span>
                             </a>
                             <div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
@@ -410,7 +409,7 @@
                         </a>
                         <ul aria-expanded="false">
                             <li class="active"> <a href='Home'>Default</a> </li>
-                            <li> <a href='admin-requests'>Requests</a> </li>
+                            <!--<li> <a href='admin-requests'>Requests</a> </li>-->
                             <li> <a href='admin-teachers'>Teachers</a> </li>
                             <li> <a href='admin-students'>Students</a> </li>
                             <li> <a href='admin-courses'>Courses</a> </li>
@@ -438,21 +437,13 @@
                     <li>
                         <a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><i class="nav-icon ti ti-layers"></i><span class="nav-title">Pages</span><span class="nav-label label label-primary">12</span></a>
                         <ul aria-expanded="false">
-                            <li> <a href="account-settings">Account Settings</a> </li>
-                            <li> <a href="admin-teachers-list">Teachers</a> </li>
+                            <li> <a href="account-setting">Account Settings</a> </li>
+                            <li> <a href="admin-teachers">Teachers</a> </li>
                             <li> <a href="contacts">Contacts</a> </li>
-                            <li> <a href="employees">Employees</a> </li>
-                            <li> <a href="faq">FAQ</a> </li>
+                            <li> <a href="employees">Team</a> </li>
+                            <li> <a href="admin-faq">FAQ</a> </li>
                             <li> <a href="file-manager">File Manager</a> </li>
-                            <li> <a href="coming-soon">Coming Soon</a> </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><i class="nav-icon ti ti-key"></i><span class="nav-title">Auth</span></a>
-                        <ul aria-expanded="false">
-                            <li> <a href="auth-login">Login</a> </li>
-                            <li> <a href="auth-register">Register</a> </li>
-                            <li> <a href="auth-lockscreen">Lock Screen</a> </li>
+                            <!--<li> <a href="coming-soon">Coming Soon</a> </li>-->
                         </ul>
                     </li>
                     

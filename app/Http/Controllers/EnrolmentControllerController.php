@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Review;
-use App\Models\Course;
-use App\Models\User;
+use App\Models\EnrolmentController;
 use Illuminate\Http\Request;
 
-class ReviewController extends Controller
+class EnrolmentControllerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +14,7 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        $reviews=Review::all();
-        $courses=Course::all();
-        $users=User::all();
-        return view("Admin/Pages/index-reviews", compact("reviews","courses","users"));
+        //
     }
 
     /**
@@ -46,10 +41,10 @@ class ReviewController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Review  $review
+     * @param  \App\Models\EnrolmentController  $enrolmentController
      * @return \Illuminate\Http\Response
      */
-    public function show(Review $review)
+    public function show(EnrolmentController $enrolmentController)
     {
         //
     }
@@ -57,10 +52,10 @@ class ReviewController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Review  $review
+     * @param  \App\Models\EnrolmentController  $enrolmentController
      * @return \Illuminate\Http\Response
      */
-    public function edit(Review $review)
+    public function edit(EnrolmentController $enrolmentController)
     {
         //
     }
@@ -69,10 +64,10 @@ class ReviewController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Review  $review
+     * @param  \App\Models\EnrolmentController  $enrolmentController
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Review $review)
+    public function update(Request $request, EnrolmentController $enrolmentController)
     {
         //
     }
@@ -80,12 +75,11 @@ class ReviewController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Review  $review
+     * @param  \App\Models\EnrolmentController  $enrolmentController
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Review $review)
+    public function destroy(EnrolmentController $enrolmentController)
     {
-        $review->delete();
-        return redirect(url('admin-reviews'));
+        //
     }
 }
