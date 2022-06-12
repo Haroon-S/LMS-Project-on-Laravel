@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\User;
+use App\Models\Course;
+use App\Models\Role;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -21,18 +24,6 @@ class AdminController extends Controller
     {
         return view("Admin/Pages/app-chat");
     }
-    public function authLock()
-    {
-        return view("Admin/Pages/auth-lockscreen");
-    }
-    public function authLogin()
-    {
-        return view("Admin/Pages/auth-login");
-    }
-    public function authRegister()
-    {
-        return view("Admin/Pages/auth-register");
-    }
     public function calendarFull()
     {
         return view("Admin/Pages/calendar-full");
@@ -41,25 +32,20 @@ class AdminController extends Controller
     {
         return view("Admin/Pages/calendar-list");
     }
-    public function indexCourses()
-    {
-        return view("Admin/Pages/index-courses");
-    }
     public function indexRequests()
     {
         return view("Admin/Pages/index-requests");
     }
-    public function indexReviews()
-    {
-        return view("Admin/Pages/index-reviews");
-    }
     public function indexStudents()
     {
-        return view("Admin/Pages/index-students");
+        $users=User::all();
+        $roles=Role::all();
+        return view("Admin/Pages/index-students", compact("users","roles"));
     }
     public function indexTeachers()
     {
-        return view("Admin/Pages/index-teachers");
+        $users=User::all();
+        return view("Admin/Pages/index-teachers", compact("users"));
     }
     public function mailInbox()
     {
@@ -81,13 +67,10 @@ class AdminController extends Controller
     {
         return view("Admin/Pages/page-account-setting");
     }
-    public function comingSoon()
-    {
-        return view("Admin/Pages/page-coming-soon");
-    }
     public function contacts()
     {
-        return view("Admin/Pages/page-contacts");
+        $users=User::all();
+        return view("Admin/Pages/page-contacts", compact("users"));
     }
     public function employees()
     {
@@ -103,7 +86,8 @@ class AdminController extends Controller
     }
     public function teachers()
     {
-        return view("Admin/Pages/page-teachers");
+        $users=User::all();
+        return view("Admin/Pages/page-teachers", compact("users"));
     }
 
     /**
@@ -169,6 +153,11 @@ class AdminController extends Controller
      */
     public function destroy(Admin $admin)
     {
-        //
+        /*if(File::exists('Pictures/'.$admin->picture)) {
+            File::delete('Pictures/'.$admin->picture);
+        }
+
+        $admin->delete();
+        return redirect(url('admin-students'));*/
     }
 }

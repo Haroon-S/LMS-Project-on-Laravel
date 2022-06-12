@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Review;
+use App\Models\Course;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
@@ -14,7 +16,10 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        //
+        $reviews=Review::all();
+        $courses=Course::all();
+        $users=User::all();
+        return view("Admin/Pages/index-reviews", compact("reviews","courses","users"));
     }
 
     /**
@@ -80,6 +85,7 @@ class ReviewController extends Controller
      */
     public function destroy(Review $review)
     {
-        //
+        $review->delete();
+        return redirect(url('admin-reviews'));
     }
 }

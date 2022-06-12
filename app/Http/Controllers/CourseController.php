@@ -14,18 +14,11 @@ class CourseController extends Controller
      */
     public function index()
     {
-
         $students = User::whereRoleIs('student')->get();
         $uploadedCourse = Course::all();
         return view('pages/home', compact("uploadedCourse", "students"));
     }
 
-
-    public function count($id)
-    {
-        $countCourse = Course::all();
-        return view('pages/home', compact("UploadedCourse"));
-    }
 
     /**
      * Show the form for creating a new resource.
@@ -90,6 +83,11 @@ class CourseController extends Controller
      */
     public function destroy(Course $course)
     {
-        //
+        if(File::exists('Thumbnails/'.$course->thumbnail)) {
+            File::delete('Thumbnails/'.$course->thumbnail);
+        }
+
+        $course->delete();
+        return redirect(url('admin-courses'));
     }
 }

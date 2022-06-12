@@ -24,6 +24,7 @@ class CreateCoursesTable extends Migration
             $table->string('course_discription');
             $table->string('teacher_name');
             $table->integer('number_of_students');
+            $table->String("thumbnail");
             $table->timestamps();
         });
     }

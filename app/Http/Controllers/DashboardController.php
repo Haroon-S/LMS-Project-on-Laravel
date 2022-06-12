@@ -25,11 +25,6 @@ class DashboardController extends Controller
           $students = User::whereRoleIs('student')->get();
           $uploadedCourse = Course::all();
           return view('pages/home', compact("uploadedCourse", "students"));
-          // $uploadedCourse = Course::all();
-          // return view('pages/home', compact("uploadedCourse"));
-          // $result = (new StudentController)->index();
-          // app('App\Http\Controllers\StudentController')->index();
-          //    return view('pages/home');
         }elseif(Auth::user()->hasRole('teacher')){
              return view('HSS-Views/teacherdashboard');
         }elseif(Auth::user()->hasRole('admin')){
