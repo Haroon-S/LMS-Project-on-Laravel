@@ -20,13 +20,6 @@ class CourseController extends Controller
         return view('pages/home', compact("uploadedCourse", "students"));
     }
 
-
-    public function count($id)
-    {
-        $countCourse = Course::all();
-        return view('pages/home', compact("UploadedCourse"));
-    }
-
     /**
      * Show the form for creating a new resource.
      *
