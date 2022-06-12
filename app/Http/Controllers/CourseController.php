@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\File;
 class CourseController extends Controller
 {
     /**
@@ -47,7 +48,8 @@ class CourseController extends Controller
      */
     public function show(Course $course)
     {
-        //
+        $uploadedCourse = Course::all();
+        return view('pages/courses/course-single', compact("course","uploadedCourse"));
     }
 
     /**
