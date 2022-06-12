@@ -8,17 +8,6 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-
-
-//      public function course()
-//     { 
-//           $students = User::whereRoleIs('student')->get();
-//           $uploadedCourse = Course::all();
-//           return view('pages/home', compact("uploadedCourse", "students"));
-//           // $result = (new StudentController)->index();
-//           // app('App\Http\Controllers\StudentController')->index();
-//     }
-
     public function index()
     {
         if(Auth::user()->hasRole('student')){

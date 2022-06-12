@@ -18,8 +18,6 @@ class CourseController extends Controller
         $uploadedCourse = Course::all();
         return view('pages/home', compact("uploadedCourse", "students"));
     }
-
-
     /**
      * Show the form for creating a new resource.
      *
