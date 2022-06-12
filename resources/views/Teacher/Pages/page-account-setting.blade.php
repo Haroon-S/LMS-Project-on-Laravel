@@ -1,4 +1,4 @@
-@extends('Admin/Layout/main')
+@extends('Teacher/Layout/main')
 
 @section('title','Home')
 
@@ -92,7 +92,7 @@
                                                             </div>
                                                             <div class="profile pt-4">
                                                                 <h4 class="mb-1">{{ Auth::user()->name }}</h4>
-                                                                <p>Admin</p>
+                                                                <p>Teacher</p>
                                                             </div>
                                                         </div>
                                                     </div>

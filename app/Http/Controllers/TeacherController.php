@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Course;
-use Illuminate\Http\Request;
+use DB;
 
-class TeacherController extends DashboardController
+class TeacherController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,72 @@ class TeacherController extends DashboardController
      */
     public function index()
     {
-        return view('HSS-Views/teacherdashboard');
+        return view("Teacher/Pages/index");
+    }
+    public function appChat()
+    {
+        return view("Teacher/Pages/app-chat");
+    }
+    public function calendarFull()
+    {
+        return view("Teacher/Pages/calendar-full");
+    }
+    public function calendarList()
+    {
+        return view("Teacher/Pages/calendar-list");
+    }
+    public function indexTeachers()
+    {
+        //$users=User::all();
+        $users = DB::table('users')
+        ->leftJoin('role_user', 'users.id', '=', 'role_user.user_id')
+        ->where('role_user.role_id', '2')
+        ->get();
+        return view("Teacher/Pages/index-teachers", compact("users"));
+    }
+    public function mailInbox()
+    {
+        return view("Teacher/Pages/mail-inbox");
+    }
+    public function mapsGoogle()
+    {
+        return view("Teacher/Pages/maps-google");
+    }
+    public function mapsMapael()
+    {
+        return view("Teacher/Pages/maps-mapael");
+    }
+    public function mapsVector()
+    {
+        return view("Teacher/Pages/maps-vector");
+    }
+    public function accountSetting()
+    {
+        return view("Teacher/Pages/page-account-setting");
+    }
+    public function contacts()
+    {
+        $users = DB::table('users')
+        ->leftJoin('role_user', 'users.id', '=', 'role_user.user_id')
+        ->where('role_user.role_id', '1')
+        ->get();
+        return view("Teacher/Pages/page-contacts", compact("users"));
+    }
+    public function employees()
+    {
+        return view("Teacher/Pages/page-employees");
+    }
+    public function faq()
+    {
+        return view("Teacher/Pages/page-faq");
+    }
+    public function fileManager()
+    {
+        return view("Teacher/Pages/page-file-manager");
+    }
+    public function createCourse()
+    {
+        return view("Teacher/Pages/create-course");
     }
 
     /**
@@ -24,7 +90,7 @@ class TeacherController extends DashboardController
      */
     public function create()
     {
-        //
+
     }
 
     /**

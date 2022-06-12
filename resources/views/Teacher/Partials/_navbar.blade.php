@@ -51,16 +51,16 @@
                                         <h4>Pages</h4>
                                         <ul>
                                             <li class="nav-link">
-                                                <a href="account-setting">Account Settings</a>
+                                                <a href="teacher-account-setting">Account Settings</a>
                                             </li>
                                             <li class="nav-link">
-                                                <a href="admin-teachers">Teachers</a>
+                                                <a href="teacher-students">Students</a>
                                             </li>
                                             <li class="nav-link">
-                                                <a href="contacts">Contacts</a>
+                                                <a href="teacher-courses">Courses</a>
                                             </li>
                                             <li class="nav-link">
-                                                <a href="file-manager">File Manager</a>
+                                                <a href="teacher-file-manager">File Manager</a>
                                             </li>
                                             <!--<li class="nav-link">
                                                 <a href="coming-soon">Coming Soon</a>
@@ -104,9 +104,9 @@
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item nav-link" href="admin-courses">Courses</a>
-                                <a class="dropdown-item nav-link" href="admin-teachers">Teachers</a>
-                                <a class="dropdown-item nav-link" href="admin-students">Students</a>
+                                <a class="dropdown-item nav-link" href="teacher-courses">Courses</a>
+                                <a class="dropdown-item nav-link" href="teacher-contacts">Admin Contact</a>
+                                <a class="dropdown-item nav-link" href="teacher-students">Students</a>
                             </div>
                         </li>
                         <li class="nav-item full-screen d-none d-lg-block" id="btnFullscreen">
@@ -116,6 +116,11 @@
                         </li>
                     </ul>
                     <ul class="navbar-nav nav-right ml-auto">
+                        <li class="nav-item dropdown">
+                            <a href="create-course" class="nav-link dropdown-toggle">
+                                <i class="ti ti-video-camera"></i>
+                            </a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="ti ti-email"></i>
@@ -361,13 +366,13 @@
                                     </div>
                                 </div>
                                 <div class="p-4">
-                                    <a class="dropdown-item d-flex nav-link" href="account-setting">
+                                    <a class="dropdown-item d-flex nav-link" href="teacher-account-setting">
                                         <i class="fa fa-user pr-2 text-success"></i> Profile</a>
                                     <a class="dropdown-item d-flex nav-link" href="javascript:void(0)">
                                         <i class="fa fa-envelope pr-2 text-primary"></i> Inbox
                                         <span class="badge badge-primary ml-auto">6</span>
                                     </a>
-                                    <a class="dropdown-item d-flex nav-link" href="account-setting">
+                                    <a class="dropdown-item d-flex nav-link" href="teacher-account-setting">
                                         <i class=" ti ti-settings pr-2 text-info"></i> Settings
                                     </a>
                                     <a class="dropdown-item d-flex nav-link" href="javascript:void(0)">
@@ -380,9 +385,9 @@
                                             </a>
                                         </div>
                                         <div class="col">
-                                            <a class="bg-light p-3 text-center d-block" href="#">
+                                            <a class="bg-light p-3 text-center d-block" href="create-course">
                                                 <i class="fe fe-plus font-20 text-primary"></i>
-                                                <span class="d-block font-13 mt-2">Compose new</span>
+                                                <span class="d-block font-13 mt-2">Create Course</span>
                                             </a>
                                         </div>
                                     </div>
@@ -411,41 +416,41 @@
                             <span class="nav-label label label-danger">5</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li class="active"> <a href='Home'>Default</a> </li>
+                            <li class="active"> <a href='Teacher-Home'>Default</a> </li>
                             <!--<li> <a href='admin-requests'>Requests</a> </li>-->
-                            <li> <a href='admin-teachers'>Teachers</a> </li>
-                            <li> <a href='admin-students'>Students</a> </li>
-                            <li> <a href='admin-courses'>Courses</a> </li>
-                            <li> <a href='admin-reviews'>Reviews</a> </li>
+                            <li> <a href='create-course'>Create Course</a> </li>
+                            <li> <a href='teacher-courses'>Courses</a> </li>
+                            <li> <a href='teacher-students'>Students</a> </li>
+                            <li> <a href='teacher-reviews'>Reviews</a> </li>
                         </ul>
                     </li>
-                    <li><a href="app-chat" aria-expanded="false"><i class="nav-icon ti ti-comment"></i><span class="nav-title">Chat</span></a> </li>
+                    <li><a href="teacher-app-chat" aria-expanded="false"><i class="nav-icon ti ti-comment"></i><span class="nav-title">Chat</span></a> </li>
                     <li><a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><i class="nav-icon ti ti-calendar"></i><span class="nav-title">Calendar</span></a>
                         <ul aria-expanded="false">
-                            <li> <a href='calendar-full'>Full Calendar</a> </li>
-                            <li> <a href='calendar-list'>Calendar List</a> </li>
+                            <li> <a href='teacher-calendar-full'>Full Calendar</a> </li>
+                            <li> <a href='teacher-calendar-list'>Calendar List</a> </li>
                         </ul>
                     </li>
-                    <li><a href="mail-inbox" aria-expanded="false"><i class="nav-icon ti ti-email"></i><span class="nav-title">Mail</span></a> </li>
+                    <li><a href="teacher-mail-inbox" aria-expanded="false"><i class="nav-icon ti ti-email"></i><span class="nav-title">Mail</span></a> </li>
                     
                     <li class="nav-static-title">Extra Components</li>
                     <li>
                         <a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><i class="nav-icon ti ti-map-alt"></i><span class="nav-title">Maps</span></a>
                         <ul aria-expanded="false">
-                            <li> <a href="maps-google">Google Maps</a> </li>
-                            <li> <a href="maps-vector">Vector Maps</a> </li>
-                            <li> <a href="maps-mapael">Mapael Maps</a> </li>
+                            <li> <a href="teacher-maps-google">Google Maps</a> </li>
+                            <li> <a href="teacher-maps-vector">Vector Maps</a> </li>
+                            <li> <a href="teacher-maps-mapael">Mapael Maps</a> </li>
                         </ul>
                     </li>
                     <li>
                         <a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><i class="nav-icon ti ti-layers"></i><span class="nav-title">Pages</span><span class="nav-label label label-primary">6</span></a>
                         <ul aria-expanded="false">
-                            <li> <a href="account-setting">Account Settings</a> </li>
-                            <li> <a href="admin-teachers">Teachers</a> </li>
-                            <li> <a href="contacts">Contacts</a> </li>
-                            <li> <a href="employees">Team</a> </li>
-                            <li> <a href="admin-faq">FAQ</a> </li>
-                            <li> <a href="file-manager">File Manager</a> </li>
+                            <li> <a href="teacher-account-setting">Account Settings</a> </li>
+                            <li> <a href="teacher-students">Students</a> </li>
+                            <li> <a href="teacher-contacts">Admin Contact</a> </li>
+                            <li> <a href="all-teachers">All Teachers</a> </li>
+                            <li> <a href="teacher-faq">FAQ</a> </li>
+                            <li> <a href="teacher-file-manager">File Manager</a> </li>
                             <!--<li> <a href="coming-soon">Coming Soon</a> </li>-->
                         </ul>
                     </li>

@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Models\Course;
 use App\Models\Role;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use DB;
 
 class AdminController extends Controller
 {
@@ -38,13 +40,19 @@ class AdminController extends Controller
     }
     public function indexStudents()
     {
-        $users=User::all();
-        $roles=Role::all();
-        return view("Admin/Pages/index-students", compact("users","roles"));
+        $users = DB::table('users')
+        ->leftJoin('role_user', 'users.id', '=', 'role_user.user_id')
+        ->where('role_user.role_id', '3')
+        ->get();
+        return view("Admin/Pages/index-students", compact("users"));
     }
     public function indexTeachers()
     {
-        $users=User::all();
+        //$users=User::all();
+        $users = DB::table('users')
+        ->leftJoin('role_user', 'users.id', '=', 'role_user.user_id')
+        ->where('role_user.role_id', '2')
+        ->get();
         return view("Admin/Pages/index-teachers", compact("users"));
     }
     public function mailInbox()
@@ -83,11 +91,6 @@ class AdminController extends Controller
     public function fileManager()
     {
         return view("Admin/Pages/page-file-manager");
-    }
-    public function teachers()
-    {
-        $users=User::all();
-        return view("Admin/Pages/page-teachers", compact("users"));
     }
 
     /**
