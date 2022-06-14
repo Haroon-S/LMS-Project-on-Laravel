@@ -5,6 +5,7 @@ use App\Models\User;
 use App\Models\Course;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
@@ -18,8 +19,9 @@ class StudentController extends Controller
 
 
 
-        $students = User::whereRoleIs('student');
-        echo $students;
+        // $no_students =DB::table('users')->whereRoleIs('student')->count();
+        $no_students = User::whereRoleIs('student')->count();
+        echo $no_students;
         // $users  = User::with('roles')->paginate(10);
         // echo $users;
         // foreach ($users as $user ) {
@@ -28,8 +30,8 @@ class StudentController extends Controller
         // $students = Auth::user()->roles;
         
         //     echo $students;
-            return view('qt');
-
+            // return view('qt', compact("no_students"));
+            return view('pages/show-course');
         // if(Auth::user()->hasRole('student')){
         //     $students = User::all();
         //     echo $students;
@@ -37,6 +39,12 @@ class StudentController extends Controller
         //   }
         //   else
         //   {}
+    }
+
+
+    public function showCourse()
+    {
+        return view('show-course');
     }
 
     /**

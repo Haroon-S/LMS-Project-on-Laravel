@@ -41,9 +41,9 @@
 
 <ul class="popular-courses">
 
-@forelse ($uploadedCourse as $key=>$uploadedCourse)
+@forelse ($courses as $key=>$course)
 <li>
-<a href="single-course/{{$uploadedCourse->id}}" title=""><img class="img-thumbnail" src="upload/{{$uploadedCourse->course_thumbnail}}" alt=""></a>
+<a href="single-course/{{$course->id}}" title=""><img class="img-thumbnail" src="Thumbnails/{{$course->thumbnail}}" alt=""></a>
 </li>
 @empty
 

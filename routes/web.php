@@ -61,6 +61,8 @@ Route::post('UpdateProfile/{user}', [RegisteredUserController::class, 'update'])
 Route::post('UpdatePassword/{user}', [RegisteredUserController::class, 'updatePassword']);
 Route::get('logout', [RegisteredUserController::class, 'destroy']);
 
+
+
 Route::get('Teacher-Home', [TeacherController::class,'index'])->middleware('authenticated');
 Route::get('teacher-courses', [CourseController::class,'teacherCourses'])->middleware('authenticated');
 Route::get('teacher-app-chat', [TeacherController::class,'appChat'])->middleware('authenticated');
@@ -80,9 +82,12 @@ Route::get('teacher-reviews', [CourseController::class,'teacherCoursesForReviews
 Route::get('create-course', [TeacherController::class,'createCourse'])->middleware('authenticated');
 Route::post("store-course/{user}",[CourseController::class,"store"]);
 Route::get("DestroyCourse/{course}",[CourseController::class,"destroyTeacher"]);
+Route::get('course-single/{course}', [CourseController::class, 'show']);
 
 
+Route::get('show', [CourseController::class,'courseShow']);
 
+// Route::get('show-course',[StudentController::class,'showCourse']);
 
 Route::get('/', [CourseController::class, 'index']);
 
@@ -90,7 +95,6 @@ Route::get('home', [CourseController::class, 'index']);
 
 
 Route::get('QT', [StudentController::class, 'index']);
-
 
 Route::get('about', [PageController::class, 'about']);
 
@@ -120,7 +124,6 @@ Route::get('course-login', [PageController::class, 'course_login']);
 
 Route::get('course-quiz', [PageController::class, 'course_quiz']);
 
-Route::get('course-single/{$uploadedCourse}', [PageController::class, 'course_single']);
 
 Route::get('course-testimonials', [PageController::class, 'course_testimonials']);
 

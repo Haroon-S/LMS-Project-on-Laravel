@@ -34,16 +34,16 @@
 
 
 
-@forelse ($uploadedCourse as $key=>$uploadedCourse)
+@forelse ($courses as $key=>$course)
 <div class="col-md-3 col-sm-6 col-xs-12 ">
 <div class="shop-item-list entry">
 <div class="">
-<img src="upload/{{$uploadedCourse->course_thumbnail}}" alt="">
+<img src="Thumbnails/{{$course->thumbnail}}" alt="">
 <div class="magnifier">
 </div>
 </div>
 <div class="shop-item-title clearfix">
-<h4><a href="course-single/{{$uploadedCourse->id}}">{{$uploadedCourse->course_title}}</a></h4>
+<h4><a href="course-single/{{$course->id}}">{{$course->course_title}}</a></h4>
 <div class="shopmeta">
 <span class="pull-left">12 Student</span>
 <div class="rating pull-right">
@@ -382,8 +382,16 @@
 </nav>
 </div>
 </div>
+
+
 </div>
 </section>
+
+
+
+
+
+
 <section class="grey section">
 <div class="container">
 <div class="row">

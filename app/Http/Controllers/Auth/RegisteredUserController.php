@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Course;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -13,8 +14,8 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 use PDF;
-use DB;
 
 class RegisteredUserController extends Controller
 {
@@ -61,7 +62,7 @@ class RegisteredUserController extends Controller
         Auth::login($user);
       
         $user->attachRole($request->role_id);
-        //$user->attachRole('admin');
+        // $user->attachRole('admin');
 
         return redirect(RouteServiceProvider::HOME);
     }

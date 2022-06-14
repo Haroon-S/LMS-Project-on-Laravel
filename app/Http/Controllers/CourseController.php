@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Http
+use Illuminate\Support\Facades\Http;
   
 class CourseController extends Controller
 {
@@ -19,9 +19,11 @@ class CourseController extends Controller
      */
     public function index()
     {
+        $courses = Course::all();
         $students = User::whereRoleIs('student')->get();
-        $uploadedCourse = Course::all();
-        return view('pages/home', compact("uploadedCourse", "students"));
+        $no_students = User::whereRoleIs('student')->count();
+        return view('pages/home', compact("courses", "students","no_students"));
+        // return view('pages/home');
     }
 
     public function teacherCourses()
@@ -38,6 +40,12 @@ class CourseController extends Controller
     {
         $courses=Course::all();
         return view("Teacher/Pages/index-students", compact("courses"));
+    }
+    
+    
+    public function courseShow()
+    {
+        return view("show-course");
     }
     /**
      * Show the form for creating a new resource.
@@ -88,9 +96,15 @@ class CourseController extends Controller
      */
     public function show(Course $course)
     {
-        $uploadedCourse = Course::all();
-        return view('pages/courses/course-single', compact("course","uploadedCourse"));
+        $courses = Course::all();
+        return view('pages/courses/course-single', compact("course","courses"));
     }
+
+
+    // public function courseSingle(Course $course)
+    // {
+    //     return view('pages/courses/course-single', compact("course"));
+    // }
 
     /**
      * Show the form for editing the specified resource.

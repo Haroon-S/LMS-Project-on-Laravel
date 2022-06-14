@@ -129,19 +129,20 @@
             </div>
         </div>
 
+
+
         <div id="owl-featured" class="owl-custom">
 
-            @forelse ($uploadedCourse as $key=>$uploadedCourse)
-            <!-- <h5 class="card-title d-none">{{$key+1}}</h5> -->
+            @forelse ($courses as $key=>$course)
             <div class="owl-featured">
                 <div class="shop-item-list entry">
                     <div class="">
-                        <img src="upload/{{$uploadedCourse->course_thumbnail}}" alt="">
+                        <img src="Thumbnails/{{$course->thumbnail}}" alt="">
                         <div class="magnifier">
                         </div>
                     </div>
                     <div class="shop-item-title clearfix">
-                        <h4><a href="course-single/{{$uploadedCourse->id}}">{{$uploadedCourse->course_title}}</a></h4>
+                        <h4><a href="course-single/{{$course->id}}">{{$course->course_title}}</a></h4>
                         <div class="shopmeta">
                             <span class="pull-left">2 students</span>
                             <div class="rating pull-right">
@@ -154,8 +155,8 @@
                         </div>
                     </div>
                     <div class="visible-buttons">
-                        <a title="Add to Cart" href="page-shop-cart/{{$uploadedCourse->id}}"><span class="fa fa-cart-arrow-down"></span></a>
-                        <a title="Read More" href="course-single/{{$uploadedCourse->id}}"><span class="fa fa-search"></span></a>
+                        <a title="Add to Cart" href="page-shop-cart/{{$course->id}}"><span class="fa fa-cart-arrow-down"></span></a>
+                        <a title="Read More" href="course-single/{{$course->id}}"><span class="fa fa-search"></span></a>
                     </div>
                 </div>
             </div>
@@ -166,6 +167,7 @@
         </div>
     </div>
 </section>
+<hr>
 @else
 <!-- <i class="fa fa-lock "></i>
                         <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a> -->
@@ -182,9 +184,10 @@
 
 
 
-<section class="grey section">
-    <div class="container">
-        <div class="row">
+
+<section class="white section">
+<div class="container">
+<div class="row">
             <div class="col-md-12">
                 <div class="section-title text-center">
                     <h4>Popular Courses</h4>
@@ -193,68 +196,28 @@
             </div>
         </div>
 
+<div class="row course-list">
 
 
 
-        <div id="owl-featured" class="owl-custom">
-
-
-
-
-
-            @forelse ($uploadedCourse as $key=>$uploadedCourse)
-            <!-- <h5 class="card-title d-none">{{$key+1}}</h5> -->
-            <div class="owl-featured">
-                <div class="shop-item-list entry">
-                    <div class="">
-                        <img src="upload/{{$uploadedCourse->course_thumbnail}}" alt="">
-                        <div class="magnifier">
-                        </div>
-                    </div>
-                    <div class="shop-item-title clearfix">
-                        <h4><a href="course-single/{{$uploadedCourse->id}}">{{$uploadedCourse->course_title}}</a></h4>
-                        <div class="shopmeta">
-                            <span class="pull-left">2 students</span>
-                            <div class="rating pull-right">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="visible-buttons">
-                        <a title="Add to Cart" href="page-shop-cart/{{$uploadedCourse->id}}"><span class="fa fa-cart-arrow-down"></span></a>
-                        <a title="Read More" href="course-single/{{$uploadedCourse->id}}"><span class="fa fa-search"></span></a>
-                    </div>
-                </div>
-            </div>
-            @empty
-
-            @endforelse
-
-
-
-
-
-            <!-- <div class="owl-featured">
+@forelse ($courses as $key=>$course)
+<div class="col-md-3 col-sm-6 col-xs-12 ">
 <div class="shop-item-list entry">
 <div class="">
-<img src="upload/xcourse_02.png.pagespeed.ic.PL7Wu2UcSB.png" alt="">
+<img src="Thumbnails/{{$course->thumbnail}}" alt="">
 <div class="magnifier">
 </div>
 </div>
 <div class="shop-item-title clearfix">
-<h4><a href="course-single">Graphic Design & Logo Mockups Course</a></h4>
+<h4><a href="course-single/{{$course->id}}">{{$course->course_title}}</a></h4>
 <div class="shopmeta">
-<span class="pull-left">21 Student</span>
+<span class="pull-left">12 Student</span>
 <div class="rating pull-right">
 <i class="fa fa-star"></i>
 <i class="fa fa-star"></i>
 <i class="fa fa-star"></i>
 <i class="fa fa-star"></i>
-<i class="fa fa-star-o"></i>
+<i class="fa fa-star"></i>
 </div>
 </div>
 </div>
@@ -264,67 +227,16 @@
 </div>
 </div>
 </div>
-<div class="owl-featured">
-<div class="shop-item-list entry">
-<div class="">
-<img src="upload/xcourse_03.png.pagespeed.ic.8e1MyY5M7i.png" alt="">
-<div class="magnifier">
-</div>
-</div>
-<div class="shop-item-title clearfix">
-<h4><a href="course-single">Social Media Network & Marketing</a></h4>
-<div class="shopmeta">
-<span class="pull-left">98 Student</span>
-<div class="rating pull-right">
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star-o"></i>
-</div>
-</div>
-</div>
-<div class="visible-buttons">
-<a title="Add to Cart" href="page-shop-cart"><span class="fa fa-cart-arrow-down"></span></a>
-<a title="Read More" href="course-single"><span class="fa fa-search"></span></a>
-</div>
-</div>
-</div>
-<div class="owl-featured">
-<div class="shop-item-list entry">
-<div class="">
-<img src="upload/xcourse_04.png.pagespeed.ic.2rIKmUwjA7.png" alt="">
-<div class="magnifier">
-</div>
-</div>
-<div class="shop-item-title clearfix">
-<h4><a href="course-single.html">WordPress Blogging, Tumblr and Blogger</a></h4>
-<div class="shopmeta">
-<span class="pull-left">98 Student</span>
-<div class="rating pull-right">
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star-o"></i>
-</div>
-</div>
-</div>
-<div class="visible-buttons">
-<a title="Add to Cart" href="page-shop-cart"><span class="fa fa-cart-arrow-down"></span></a>
-<a title="Read More" href="course-single"><span class="fa fa-search"></span></a>
-</div>
-</div>
-</div> -->
+@empty
+
+@endforelse
 
 
+</div>
 
 
-
-        </div>
-    </div>
+</div>
 </section>
-
 
 
 <section class="section darkskin fullscreen paralbackground parallax" style="background-image:url(upload/xparallax_01.jpg.pagespeed.ic.JPVsQrTu6o.jpg)" data-img-width="1627" data-img-height="868" data-diff="100">
@@ -561,7 +473,7 @@
         <div class="row service-center funfactors">
             <div class="col-md-4 col-sm-6">
                 <div class="feature-list">
-                    <i class="stat-count">3312</i>
+                    <i class="stat-count">{{ $no_students }}</i>
                     <p><strong>Happy Students</strong></p>
                     <p>Lorem ipsum m dolor sit amet, consectetur adipiing elit.dolor sit amet, consectetur adipiing elit. Integer lorem quam..</p>
                 </div>
@@ -605,13 +517,12 @@
 
 
 
-            @forelse ($uploadedCourse as $key=>$uploadedCourse)
+            @forelse ($courses as $key=>$course)
             <div class="col-md-4 col-sm-6">
                 <div class="blog-wrapper">
                     <div class="blog-title">
-                        <!-- <h5 class="card-title d-none">{{$key+1}}</h5> -->
                         <a class="category_title" href="#" title="">Digital Marketing</a>
-                        <h2><a href="single/{{$uploadedCourse->id}}" title="">{{$uploadedCourse->course_title}}</a></h2>
+                        <h2><a href="course-single/{{$course->id}}" title="">{{$course->course_title}}</a></h2>
                         <div class="post-meta">
                             <span>
                                 <i class="fa fa-user"></i>
@@ -628,11 +539,11 @@
                         </div>
                     </div>
                     <div class="blog-image">
-                        <a href="single/{{$uploadedCourse->id}}" title=""><img src="upload/{{$uploadedCourse->course_thumbnail}}" alt="" class="img-responsive"></a>
+                        <a href="single/{{$course->id}}" title=""><img src="Thumbnails/{{$course->thumbnail}}" alt="" class="img-responsive"></a>
                     </div>
                     <div class="blog-desc">
-                        <p>{{$uploadedCourse->course_discription}}</p>
-                        <a href="single/{{$uploadedCourse->id}}" class="btn btn-default btn-block">View More</a>
+                        <p>{{$course->course_discription}}</p>
+                        <a href="single/{{$course->id}}" class="btn btn-default btn-block">View More</a>
                     </div>
                 </div>
             </div>

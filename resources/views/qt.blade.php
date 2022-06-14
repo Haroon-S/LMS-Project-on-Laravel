@@ -1,0 +1,1 @@
+<h1>{{ $no_students }}</h1>
