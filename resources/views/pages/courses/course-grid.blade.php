@@ -10,6 +10,7 @@
 <div class="col-md-6 text-left">
 <h1>Course List Page</h1>
 </div>
+
 <div class="col-md-6 text-right">
 <div class="bread">
 <ol class="breadcrumb">
@@ -22,18 +23,27 @@
 </div>
 </div>
 </section>
+
+
+
 <section class="white section">
 <div class="container">
+
+
 <div class="row course-list">
-<div class="col-md-3 col-sm-6 col-xs-12 first">
+
+
+
+@forelse ($courses as $key=>$course)
+<div class="col-md-3 col-sm-6 col-xs-12 ">
 <div class="shop-item-list entry">
 <div class="">
-<img src="upload/xcourse_01.png.pagespeed.ic.XTOvCuUmZu.png" alt="">
+<img src="Thumbnails/{{$course->thumbnail}}" alt="">
 <div class="magnifier">
 </div>
 </div>
 <div class="shop-item-title clearfix">
-<h4><a href="course-single">Learn Web Design & Development</a></h4>
+<h4><a href="course-single/{{$course->id}}">{{$course->course_title}}</a></h4>
 <div class="shopmeta">
 <span class="pull-left">12 Student</span>
 <div class="rating pull-right">
@@ -51,6 +61,12 @@
 </div>
 </div>
 </div>
+@empty
+
+@endforelse
+
+
+<!-- 
 <div class="col-md-3 col-sm-6 col-xs-12">
 <div class="shop-item-list entry">
 <div class="">
@@ -336,8 +352,13 @@
 <a title="Read More" href="course-single"><span class="fa fa-search"></span></a>
 </div>
 </div>
+</div> -->
+
+
+
+
 </div>
-</div>
+
 <div class="row">
 <div class="col-md-12">
 <nav class="text-center">
@@ -361,8 +382,16 @@
 </nav>
 </div>
 </div>
+
+
 </div>
 </section>
+
+
+
+
+
+
 <section class="grey section">
 <div class="container">
 <div class="row">

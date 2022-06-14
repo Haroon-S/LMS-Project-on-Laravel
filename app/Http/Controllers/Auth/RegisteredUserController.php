@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 use PDF;
-use DB;
 
 class RegisteredUserController extends Controller
 {
@@ -61,8 +61,9 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
+      
         $user->attachRole($request->role_id);
-        //$user->attachRole('admin');
+        // $user->attachRole('admin');
 
         return redirect(RouteServiceProvider::HOME);
     }

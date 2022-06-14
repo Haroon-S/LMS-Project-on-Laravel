@@ -37,11 +37,19 @@
 <h4>Popular Courses</h4>
 <hr>
 </div>
+
+
 <ul class="popular-courses">
+
+@forelse ($courses as $key=>$course)
 <li>
-<a href="single-course" title=""><img class="img-thumbnail" src="upload/xservice_01.png.pagespeed.ic.2iuJZT3CaV.png" alt=""></a>
+<a href="single-course/{{$course->id}}" title=""><img class="img-thumbnail" src="Thumbnails/{{$course->thumbnail}}" alt=""></a>
 </li>
-<li>
+@empty
+
+@endforelse
+
+<!-- <li>
 <a href="single-course" title=""><img class="img-thumbnail" src="upload/xservice_02.png.pagespeed.ic.c6RThoxSWC.png" alt=""></a>
 </li>
 <li>
@@ -64,8 +72,13 @@
 </li>
 <li>
 <a href="single-course" title=""><img class="img-thumbnail" src="upload/xservice_09.png.pagespeed.ic.FJcG938KC-.png" alt=""></a>
-</li>
+</li> -->
+
+
 </ul>
+
+
+
 </div>
 </div>
 <div class="col-md-3 col-md-6 col-xs-12">

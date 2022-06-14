@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\TeacherController;
@@ -20,7 +21,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 |
 */
 
-Route::get('/', function () {
+Route::get('lara', function () {
     return view('welcome');
 });
 
@@ -64,6 +65,8 @@ Route::get("student-courses",[CourseController::class,"studentCourses"]);
 Route::get("DestroyCourseAdmin/{course}",[CourseController::class,"destroyAdmin"]);
 
 
+
+
 Route::get('Teacher-Home', [TeacherController::class,'index'])->middleware('authenticated');
 Route::get('teacher-courses', [CourseController::class,'teacherCourses'])->middleware('authenticated');
 Route::get('teacher-app-chat', [TeacherController::class,'appChat'])->middleware('authenticated');
@@ -84,11 +87,18 @@ Route::get('create-course', [TeacherController::class,'createCourse'])->middlewa
 Route::post("store-course/{user}",[CourseController::class,"store"])->middleware('authenticated');
 Route::get("DestroyCourse/{course}",[CourseController::class,"destroyTeacher"])->middleware('authenticated');
 Route::get('view-reviews/{id}', [ReviewController::class,'teacherReviews'])->middleware('authenticated');
+Route::get('course-single/{course}', [CourseController::class, 'show']);
+
+Route::get("enroll-course/{course}",[CourseController::class,"enrollCourse"]);
+Route::get('show', [CourseController::class,'courseShow']);
+
+Route::get('show-course',[CourseController::class,'enrollCourse']);
 
 
-Route::get('/', [PageController::class, 'home']);
+Route::get('home', [CourseController::class, 'index']);
 
-Route::get('home', [PageController::class, 'home']);
+
+Route::get('QT/{course}', [CourseController::class, 'q_t']);
 
 Route::get('about', [PageController::class, 'about']);
 
@@ -118,7 +128,6 @@ Route::get('course-login', [PageController::class, 'course_login']);
 
 Route::get('course-quiz', [PageController::class, 'course_quiz']);
 
-Route::get('course-single', [PageController::class, 'course_single']);
 
 Route::get('course-testimonials', [PageController::class, 'course_testimonials']);
 
