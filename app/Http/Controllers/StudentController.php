@@ -20,8 +20,8 @@ class StudentController extends Controller
 
 
         // $no_students =DB::table('users')->whereRoleIs('student')->count();
-        $no_students = User::whereRoleIs('student')->count();
-        echo $no_students;
+        // $no_students = User::whereRoleIs('student')->count();
+        // echo $no_students;
         // $users  = User::with('roles')->paginate(10);
         // echo $users;
         // foreach ($users as $user ) {
@@ -31,11 +31,11 @@ class StudentController extends Controller
         
         //     echo $students;
             // return view('qt', compact("no_students"));
-            return view('pages/show-course');
+            // return view('pages/show-course');
         // if(Auth::user()->hasRole('student')){
         //     $students = User::all();
         //     echo $students;
-        //     return view('qt');
+            // return view('qt');
         //   }
         //   else
         //   {}

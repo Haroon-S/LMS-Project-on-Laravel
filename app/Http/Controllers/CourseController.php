@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use App\Models\User;
+use App\Models\Enrollment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
@@ -99,12 +100,26 @@ class CourseController extends Controller
         $courses = Course::all();
         return view('pages/courses/course-single', compact("course","courses"));
     }
+    
+    public function enrollCourse(Course $course)
+    {
+       
+            $tc = $course->id;
+            $ts = Auth::user()->id;
+            echo $ts;
+            echo $tc;
+            return view("show-course");
+    }
 
+    public function q_t(Course $course)
+    {
+        return view('qt', compact("course"));
+    }
 
-    // public function courseSingle(Course $course)
-    // {
-    //     return view('pages/courses/course-single', compact("course"));
-    // }
+    public function showCourse()
+    {
+        return view("show-course");
+    }
 
     /**
      * Show the form for editing the specified resource.

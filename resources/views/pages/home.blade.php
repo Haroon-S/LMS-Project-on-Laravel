@@ -142,7 +142,7 @@
                         </div>
                     </div>
                     <div class="shop-item-title clearfix">
-                        <h4><a href="course-single/{{$course->id}}">{{$course->course_title}}</a></h4>
+                        <h4><a href="QT/{{$course->id}}">{{$course->course_title}}</a></h4>
                         <div class="shopmeta">
                             <span class="pull-left">2 students</span>
                             <div class="rating pull-right">
@@ -209,7 +209,7 @@
 </div>
 </div>
 <div class="shop-item-title clearfix">
-<h4><a href="course-single/{{$course->id}}">{{$course->course_title}}</a></h4>
+<h4><a href="QT/{{$course->id}}">{{$course->course_title}}</a></h4>
 <div class="shopmeta">
 <span class="pull-left">12 Student</span>
 <div class="rating pull-right">

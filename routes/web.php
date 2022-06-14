@@ -84,17 +84,17 @@ Route::post("store-course/{user}",[CourseController::class,"store"]);
 Route::get("DestroyCourse/{course}",[CourseController::class,"destroyTeacher"]);
 Route::get('course-single/{course}', [CourseController::class, 'show']);
 
-
+Route::get("enroll-course/{course}",[CourseController::class,"enrollCourse"]);
 Route::get('show', [CourseController::class,'courseShow']);
 
-// Route::get('show-course',[StudentController::class,'showCourse']);
+Route::get('show-course',[CourseController::class,'enrollCourse']);
 
 Route::get('/', [CourseController::class, 'index']);
 
 Route::get('home', [CourseController::class, 'index']);
 
 
-Route::get('QT', [StudentController::class, 'index']);
+Route::get('QT/{course}', [CourseController::class, 'q_t']);
 
 Route::get('about', [PageController::class, 'about']);
 
