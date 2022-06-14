@@ -29,6 +29,12 @@ class CourseController extends Controller
         // return view('pages/home');
     }
 
+    public function adminCourses()
+    {
+        $courses = Course::all();
+        return view ("Admin/Pages/index-courses", compact("courses"));
+    }
+
     public function teacherCourses()
     {
         $courses = Course::all();
@@ -143,7 +149,7 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
-        //
+        return view("Teacher/Pages/edit-course", compact('course'));
     }
 
     /**
@@ -155,7 +161,27 @@ class CourseController extends Controller
      */
     public function update(Request $request, Course $course)
     {
-        //
+        $data = $request->validate([
+            "course_title" => "required|max:50",
+            "course_category" => "required",
+            "course_description" => "required",
+            "thumbnail" => "required",
+        ]);
+
+        if( $request->file("thumbnail") ){
+
+            //delete old file from dir
+            File::delete('Thumbnails/'.$course->thumbnail);
+
+            // put new file in dir
+            $file = $request->file('thumbnail');
+            $data['thumbnail'] = Str::uuid(). '.' .$file->getClientOriginalExtension();
+            $file->move('Thumbnails/', $data['thumbnail']);
+        }
+
+        $course->update($data);
+
+        return redirect(url('teacher-courses'));
     }
 
     /**
