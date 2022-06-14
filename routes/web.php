@@ -92,10 +92,11 @@ Route::get('course-single/{course}', [CourseController::class, 'show']);
 Route::get("enroll-course/{course}",[CourseController::class,"enrollCourse"]);
 Route::get('show', [CourseController::class,'courseShow']);
 
-Route::get('show-course',[CourseController::class,'enrollCourse']);
+Route::get('show-course',[CourseController::class,'showCourse']);
 
 
 Route::get('home', [CourseController::class, 'index']);
+Route::get('/', [CourseController::class, 'index']);
 
 
 Route::get('QT/{course}', [CourseController::class, 'q_t']);

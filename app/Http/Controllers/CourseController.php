@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use App\Models\User;
+use App\Models\Review;
 use App\Models\Enrollment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
