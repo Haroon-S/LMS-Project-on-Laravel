@@ -4,28 +4,6 @@
 
 @section('contents')
 
-<!DOCTYPE html>
-<html lang="en">
-
-
-<head>
-    <title>Teachers List</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Admin template that can be used to build dashboards for CRM, CMS, etc." />
-    <meta name="author" content="Potenza Global Solutions" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- app favicon -->
-    <link rel="shortcut icon" href="assets/img/favicon.ico">
-    <!-- google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <!-- plugin stylesheets -->
-    <link rel="stylesheet" type="text/css" href="assets/css/vendors.css" />
-    <!-- app style -->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-</head>
-
-<body>
     <!-- begin app -->
     <div class="app">
         <!-- begin app-wrap -->
@@ -108,7 +86,6 @@
                                                     <th scope="col">Teachers</th>
                                                     <th scope="col">Email</th>
                                                     <th scope="col">Registered at</th>
-                                                    <th scope="col">No of Courses</th>
                                                     <th scope="col">Delete</th>
                                                 </tr>
                                             </thead>
@@ -126,7 +103,6 @@
                                                     </td>
                                                     <td>{{$user->email}}</td>
                                                     <td>{{$user->created_at}}</td>
-                                                    <td><a href="javascript:void(0)" class="dot"></a><span>5</span></td>
                                                     <td>
                                                         <a href="DestroyTeacher/{{$user->id}}" class="btn btn-icon btn-outline-danger btn-round"><i class="ti ti-close"></i></a>
                                                     </td>
@@ -154,14 +130,4 @@
         <!-- end app-wrap -->
     </div>
     <!-- end app -->
-
-    <!-- plugins -->
-    <script src="assets/js/vendors.js"></script>
-
-    <!-- custom app -->
-    <script src="assets/js/app.js"></script>
-</body>
-
-
-</html>
 @endsection

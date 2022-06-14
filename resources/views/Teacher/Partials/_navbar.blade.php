@@ -1,21 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Admin template that can be used to build dashboards for CRM, CMS, etc." />
-    <meta name="author" content="Potenza Global Solutions" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- app favicon -->
-    <link rel="shortcut icon" href="assets/img/favicon.ico">
-    <!-- google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <!-- plugin stylesheets -->
-    <link rel="stylesheet" type="text/css" href="assets/css/vendors.css" />
-    <!-- app style -->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-</head>
-<body>
+
     <header class="app-header top-bar">
         <!-- begin navbar -->
         <nav class="navbar navbar-expand-md">
@@ -23,9 +6,9 @@
             <!-- begin navbar-header -->
             <div class="navbar-header d-flex align-items-center">
                 <a href="javascript:void:(0)" class="mobile-toggle"><i class="ti ti-align-right"></i></a>
-                <a class="navbar-brand" href="Home">
-                    <img src="assets/img/logo.png" class="img-fluid logo-desktop" alt="logo" />
-                    <img src="assets/img/logo-icon.png" class="img-fluid logo-mobile" alt="logo" />
+                <a class="navbar-brand" href="/Teacher-Home">
+                    <img src="/assets/img/logo.png" class="img-fluid logo-desktop" alt="logo" />
+                    <img src="/assets/img/logo-icon.png" class="img-fluid logo-mobile" alt="logo" />
                 </a>
             </div>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,16 +34,16 @@
                                         <h4>Pages</h4>
                                         <ul>
                                             <li class="nav-link">
-                                                <a href="teacher-account-setting">Account Settings</a>
+                                                <a href="/teacher-account-setting">Account Settings</a>
                                             </li>
                                             <li class="nav-link">
-                                                <a href="teacher-students">Students</a>
+                                                <a href="/teacher-students">Students</a>
                                             </li>
                                             <li class="nav-link">
-                                                <a href="teacher-courses">Courses</a>
+                                                <a href="/teacher-courses">Courses</a>
                                             </li>
                                             <li class="nav-link">
-                                                <a href="teacher-file-manager">File Manager</a>
+                                                <a href="/teacher-file-manager">File Manager</a>
                                             </li>
                                             <!--<li class="nav-link">
                                                 <a href="coming-soon">Coming Soon</a>
@@ -104,9 +87,9 @@
                                 <i class="fa fa-angle-down"></i>
                             </a>
                             <div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item nav-link" href="teacher-courses">Courses</a>
-                                <a class="dropdown-item nav-link" href="teacher-contacts">Admin Contact</a>
-                                <a class="dropdown-item nav-link" href="teacher-students">Students</a>
+                                <a class="dropdown-item nav-link" href="/teacher-courses">Courses</a>
+                                <a class="dropdown-item nav-link" href="/teacher-contacts">Admin Contact</a>
+                                <a class="dropdown-item nav-link" href="/teacher-students">Students</a>
                             </div>
                         </li>
                         <li class="nav-item full-screen d-none d-lg-block" id="btnFullscreen">
@@ -117,7 +100,7 @@
                     </ul>
                     <ul class="navbar-nav nav-right ml-auto">
                         <li class="nav-item dropdown">
-                            <a href="create-course" class="nav-link dropdown-toggle">
+                            <a href="/create-course" class="nav-link dropdown-toggle">
                                 <i class="ti ti-video-camera"></i>
                             </a>
                         </li>
@@ -138,7 +121,7 @@
                                                 <a href="javascript:void(0)">
                                                     <div class="notification d-flex flex-row align-items-center">
                                                         <div class="notify-icon bg-img align-self-center">
-                                                            <img class="img-fluid" src="assets/img/avtar/03.jpg" alt="user3">
+                                                            <img class="img-fluid" src="/assets/img/avtar/03.jpg" alt="user3">
                                                         </div>
                                                         <div class="notify-message">
                                                             <p class="font-weight-bold">Brianing Leyon</p>
@@ -151,7 +134,7 @@
                                                 <a href="javascript:void(0)">
                                                     <div class="notification d-flex flex-row align-items-center">
                                                         <div class="notify-icon bg-img align-self-center">
-                                                            <img class="img-fluid" src="assets/img/avtar/01.jpg" alt="user">
+                                                            <img class="img-fluid" src="/assets/img/avtar/01.jpg" alt="user">
                                                         </div>
                                                         <div class="notify-message">
                                                             <p class="font-weight-bold">Jimmyimg Leyon</p>
@@ -164,7 +147,7 @@
                                                 <a href="javascript:void(0)">
                                                     <div class="notification d-flex flex-row align-items-center">
                                                         <div class="notify-icon bg-img align-self-center">
-                                                            <img class="img-fluid" src="assets/img/avtar/02.jpg" alt="user2">
+                                                            <img class="img-fluid" src="/assets/img/avtar/02.jpg" alt="user2">
                                                         </div>
                                                         <div class="notify-message">
                                                             <p class="font-weight-bold">Brainjon Leyon</p>
@@ -177,7 +160,7 @@
                                                 <a href="javascript:void(0)">
                                                     <div class="notification d-flex flex-row align-items-center">
                                                         <div class="notify-icon bg-img align-self-center">
-                                                            <img class="img-fluid" src="assets/img/avtar/04.jpg" alt="user4">
+                                                            <img class="img-fluid" src="/assets/img/avtar/04.jpg" alt="user4">
                                                         </div>
                                                         <div class="notify-message">
                                                             <p class="font-weight-bold">Smithmin Leyon</p>
@@ -190,7 +173,7 @@
                                                 <a href="javascript:void(0)">
                                                     <div class="notification d-flex flex-row align-items-center">
                                                         <div class="notify-icon bg-img align-self-center">
-                                                            <img class="img-fluid" src="assets/img/avtar/05.jpg" alt="user5">
+                                                            <img class="img-fluid" src="/assets/img/avtar/05.jpg" alt="user5">
                                                         </div>
                                                         <div class="notify-message">
                                                             <p class="font-weight-bold">Jennyns Leyon</p>
@@ -203,7 +186,7 @@
                                                 <a href="javascript:void(0)">
                                                     <div class="notification d-flex flex-row align-items-center">
                                                         <div class="notify-icon bg-img align-self-center">
-                                                            <img class="img-fluid" src="assets/img/avtar/06.jpg" alt="user6">
+                                                            <img class="img-fluid" src="/assets/img/avtar/06.jpg" alt="user6">
                                                         </div>
                                                         <div class="notify-message">
                                                             <p class="font-weight-bold">Demian Leyon</p>
@@ -340,7 +323,7 @@
                         </li>
                         <li class="nav-item dropdown user-profile">
                             <a href="javascript:void(0)" class="nav-link dropdown-toggle " id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="Pictures/{{Auth::user()->picture}}" alt="avtar-img">
+                                <img src="/Pictures/{{Auth::user()->picture}}" alt="avtar-img">
                                 <span class="bg-success user-status"></span>
                             </a>
                             <div class="dropdown-menu animated fadeIn" aria-labelledby="navbarDropdown">
@@ -366,13 +349,13 @@
                                     </div>
                                 </div>
                                 <div class="p-4">
-                                    <a class="dropdown-item d-flex nav-link" href="teacher-account-setting">
+                                    <a class="dropdown-item d-flex nav-link" href="/teacher-account-setting">
                                         <i class="fa fa-user pr-2 text-success"></i> Profile</a>
                                     <a class="dropdown-item d-flex nav-link" href="javascript:void(0)">
                                         <i class="fa fa-envelope pr-2 text-primary"></i> Inbox
                                         <span class="badge badge-primary ml-auto">6</span>
                                     </a>
-                                    <a class="dropdown-item d-flex nav-link" href="teacher-account-setting">
+                                    <a class="dropdown-item d-flex nav-link" href="/teacher-account-setting">
                                         <i class=" ti ti-settings pr-2 text-info"></i> Settings
                                     </a>
                                     <a class="dropdown-item d-flex nav-link" href="javascript:void(0)">
@@ -385,7 +368,7 @@
                                             </a>
                                         </div>
                                         <div class="col">
-                                            <a class="bg-light p-3 text-center d-block" href="create-course">
+                                            <a class="bg-light p-3 text-center d-block" href="/create-course">
                                                 <i class="fe fe-plus font-20 text-primary"></i>
                                                 <span class="d-block font-13 mt-2">Create Course</span>
                                             </a>
@@ -416,47 +399,47 @@
                             <span class="nav-label label label-danger">5</span>
                         </a>
                         <ul aria-expanded="false">
-                            <li class="active"> <a href='Teacher-Home'>Default</a> </li>
+                            <li class="active"> <a href='/Teacher-Home'>Default</a> </li>
                             <!--<li> <a href='admin-requests'>Requests</a> </li>-->
-                            <li> <a href='create-course'>Create Course</a> </li>
-                            <li> <a href='teacher-courses'>Courses</a> </li>
-                            <li> <a href='teacher-students'>Students</a> </li>
-                            <li> <a href='teacher-reviews'>Reviews</a> </li>
+                            <li> <a href='/create-course'>Create Course</a> </li>
+                            <li> <a href='/teacher-courses'>Courses</a> </li>
+                            <li> <a href='/teacher-students'>Students</a> </li>
+                            <li> <a href='/teacher-reviews'>Reviews</a> </li>
                         </ul>
                     </li>
-                    <li><a href="teacher-app-chat" aria-expanded="false"><i class="nav-icon ti ti-comment"></i><span class="nav-title">Chat</span></a> </li>
+                    <li><a href="/teacher-app-chat" aria-expanded="false"><i class="nav-icon ti ti-comment"></i><span class="nav-title">Chat</span></a> </li>
                     <li><a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><i class="nav-icon ti ti-calendar"></i><span class="nav-title">Calendar</span></a>
                         <ul aria-expanded="false">
-                            <li> <a href='teacher-calendar-full'>Full Calendar</a> </li>
-                            <li> <a href='teacher-calendar-list'>Calendar List</a> </li>
+                            <li> <a href='/teacher-calendar-full'>Full Calendar</a> </li>
+                            <li> <a href='/teacher-calendar-list'>Calendar List</a> </li>
                         </ul>
                     </li>
-                    <li><a href="teacher-mail-inbox" aria-expanded="false"><i class="nav-icon ti ti-email"></i><span class="nav-title">Mail</span></a> </li>
+                    <li><a href="/teacher-mail-inbox" aria-expanded="false"><i class="nav-icon ti ti-email"></i><span class="nav-title">Mail</span></a> </li>
                     
                     <li class="nav-static-title">Extra Components</li>
                     <li>
                         <a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><i class="nav-icon ti ti-map-alt"></i><span class="nav-title">Maps</span></a>
                         <ul aria-expanded="false">
-                            <li> <a href="teacher-maps-google">Google Maps</a> </li>
-                            <li> <a href="teacher-maps-vector">Vector Maps</a> </li>
-                            <li> <a href="teacher-maps-mapael">Mapael Maps</a> </li>
+                            <li> <a href="/teacher-maps-google">Google Maps</a> </li>
+                            <li> <a href="/teacher-maps-vector">Vector Maps</a> </li>
+                            <li> <a href="/teacher-maps-mapael">Mapael Maps</a> </li>
                         </ul>
                     </li>
                     <li>
                         <a class="has-arrow" href="javascript:void(0)" aria-expanded="false"><i class="nav-icon ti ti-layers"></i><span class="nav-title">Pages</span><span class="nav-label label label-primary">6</span></a>
                         <ul aria-expanded="false">
-                            <li> <a href="teacher-account-setting">Account Settings</a> </li>
-                            <li> <a href="teacher-students">Students</a> </li>
-                            <li> <a href="teacher-contacts">Admin Contact</a> </li>
-                            <li> <a href="all-teachers">All Teachers</a> </li>
-                            <li> <a href="teacher-faq">FAQ</a> </li>
-                            <li> <a href="teacher-file-manager">File Manager</a> </li>
+                            <li> <a href="/teacher-account-setting">Account Settings</a> </li>
+                            <li> <a href="/teacher-students">Students</a> </li>
+                            <li> <a href="/teacher-contacts">Admin Contact</a> </li>
+                            <li> <a href="/all-teachers">All Teachers</a> </li>
+                            <li> <a href="/teacher-faq">FAQ</a> </li>
+                            <li> <a href="/teacher-file-manager">File Manager</a> </li>
                             <!--<li> <a href="coming-soon">Coming Soon</a> </li>-->
                         </ul>
                     </li>
                     
                     <li class="sidebar-banner p-4 bg-gradient text-center m-3 d-block rounded">
-                        <h5 class="text-white mb-1">Mentor admin</h5>
+                        <h5 class="text-white mb-1">Admin admin</h5>
                         <p class="font-13 text-white line-20">Multipurpose Bootstrap 4 Admin Template</p>
                         <a class="btn btn-square btn-inverse-light btn-xs d-inline-block mt-2 mb-0" href="#"> Buy now</a>
                     </li>
@@ -464,11 +447,3 @@
             </div>
             <!-- end sidebar-nav -->
         </aside>
-
-        <!-- plugins -->
-    <script src="assets/js/vendors.js"></script>
-
-    <!-- custom app -->
-    <script src="assets/js/app.js"></script>
-</body>
-</html>
