@@ -38,11 +38,11 @@ class AdminController extends Controller
     {
         return view("Admin/Pages/index-requests");
     }
-    public function indexStudents()
+    public function indexStudents(Course $course)
     {
         $users = DB::table('users')
-        ->leftJoin('role_user', 'users.id', '=', 'role_user.user_id')
-        ->where('role_user.role_id', '3')
+        ->leftJoin('enroll_courses', 'users.id', '=', 'enroll_course.user_id')
+        ->leftJoin('enroll_courses', 'enroll_course.course_id', '=', 'course.id')
         ->get();
         return view("Admin/Pages/index-students", compact("users"));
     }
@@ -77,7 +77,10 @@ class AdminController extends Controller
     }
     public function contacts()
     {
-        $users=User::all();
+        $users = DB::table('users')
+        ->leftJoin('role_user', 'users.id', '=', 'role_user.user_id')
+        ->where('role_user.role_id', '2')
+        ->get();
         return view("Admin/Pages/page-contacts", compact("users"));
     }
     public function employees()

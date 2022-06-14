@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Http;
+use DB;
 
 class CourseController extends Controller
 {
@@ -24,7 +25,7 @@ class CourseController extends Controller
 
     public function teacherCourses()
     {
-        $courses=Course::all();
+        $courses = Course::all();
         return view("Teacher/Pages/index-courses", compact("courses"));
     }
     public function teacherCoursesForReviews()
@@ -79,6 +80,18 @@ class CourseController extends Controller
         return redirect(url("teacher-courses"));
     }
 
+    public function reviewCourses()
+    {
+        $courses=Course::all();
+        return view("Admin/Pages/review-courses", compact('courses'));
+    }
+
+    public function studentCourses()
+    {
+        $courses=Course::all();
+        return view("Admin/Pages/student-courses", compact('courses'));
+    }
+
     /**
      * Display the specified resource.
      *
@@ -125,6 +138,13 @@ class CourseController extends Controller
             File::delete('Thumbnails/'.$course->thumbnail);
         }
 
+        $reviews=Review::where('course_id', $course->id)->get();
+
+        foreach($reviews as $review)
+        {
+            $review->delete();
+        }
+
         $course->delete();
         return redirect(url('admin-courses'));
     }
@@ -137,5 +157,15 @@ class CourseController extends Controller
 
         $course->delete();
         return redirect(url('teacher-courses'));
+    }
+
+    public function destroyAdmin(Course $course)
+    {
+        if(File::exists('Thumbnails/'.$course->thumbnail)) {
+            File::delete('Thumbnails/'.$course->thumbnail);
+        }
+
+        $course->delete();
+        return redirect(url('admin-courses'));
     }
 }

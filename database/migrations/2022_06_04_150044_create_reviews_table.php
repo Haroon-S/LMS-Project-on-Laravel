@@ -18,6 +18,9 @@ class CreateReviewsTable extends Migration
             $table->string('review_on_course');
             $table->unsignedBigInteger('course_id');
             $table->foreign('course_id')->references('id')->on('courses');
+            $table->string('course_title');
+            $table->foreign('course_title')->references('course_title')->on('courses');
+            $table->string('student_name');
             $table->timestamps();
         });
     }

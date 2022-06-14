@@ -26,16 +26,16 @@
             <tr>
                 <th class="content-width">Sr. No</th>
                 <th class="content-width">Id</th>
-                <th class="content-width">Name</th>
-                <th class="content-width">Email</th>
+                <th class="content-width">Course Title</th>
+                <th class="content-width">Teacher Name</th>
                 <th class="content-width">Registered at</th>
             </tr>
             @forelse($courses as $key=>$course)
             <tr>
                 <td class="content-width">{{$key+1}}</td>
                 <td class="content-width">{{$course->id}}</td>
-                <td class="content-width">{{$course->name}}</td>
-                <td class="content-width">{{$course->email}}</td>
+                <td class="content-width">{{$course->course_title}}</td>
+                <td class="content-width">{{$course->teacher_name}}</td>
                 <td class="content-width">{{$course->created_at}}</td>
             </tr>
             @empty

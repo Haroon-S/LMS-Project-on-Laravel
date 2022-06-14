@@ -1,6 +1,6 @@
-@extends('Admin/Layout/main')
+@extends('Teacher/Layout/main')
 
-@section('title','Home')
+@section('title','Reviews')
 
 @section('contents')
     <!-- begin app -->
@@ -52,7 +52,7 @@
                                                             <label class="badge badge-success-inverse mb-0">{{$review->created_at}}</label>
                                                         </td>
                                                         <td>
-                                                            <a href="DestroyReview/{{$review->id}}"><i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"></i></a>
+                                                            <a href="/DestroyReview/{{$review->id}}"><i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"></i></a>
                                                         </td>
                                                     </tr>
                                                     @empty

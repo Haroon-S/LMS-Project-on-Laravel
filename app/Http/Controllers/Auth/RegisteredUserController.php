@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Course;
+use App\Models\Review;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -79,6 +81,24 @@ class RegisteredUserController extends Controller
     {
         if(File::exists('Pictures/'.$user->picture)) {
             File::delete('Pictures/'.$user->picture);
+        }
+
+        $courses =Course::where('user_id', $user->id)->get();
+
+        foreach($courses as $course)
+        {
+            if(File::exists('Thumbnails/'.$course->thumbnail)) {
+                File::delete('Thumbnails/'.$course->thumbnail);
+            }
+
+            $reviews=Review::where('course_id', $course->id)->get();
+
+            foreach($reviews as $review)
+            {
+                $review->delete();
+            }
+
+            $course->delete();
         }
 
         $user->delete();

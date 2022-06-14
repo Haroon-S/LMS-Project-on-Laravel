@@ -37,7 +37,7 @@ Route::get('calendar-full', [AdminController::class,'calendarFull'])->middleware
 Route::get('calendar-list', [AdminController::class,'calendarList'])->middleware('authenticated');
 Route::get('admin-courses', [CourseController::class,'index'])->middleware('authenticated');
 Route::get('admin-requests', [AdminController::class,'indexrequests'])->middleware('authenticated');
-Route::get('admin-reviews', [ReviewController::class,'index'])->middleware('authenticated');
+Route::get('admin-reviews/{id}', [ReviewController::class,'index'])->middleware('authenticated');
 Route::get('admin-students', [AdminController::class,'indexStudents'])->middleware('authenticated');
 Route::get('admin-teachers', [AdminController::class,'indexTeachers'])->middleware('authenticated');
 Route::get('mail-inbox', [AdminController::class,'mailInbox'])->middleware('authenticated');
@@ -59,6 +59,10 @@ Route::get("DestroyReview/{review}",[ReviewController::class,"destroy"]);
 Route::post('UpdateProfile/{user}', [RegisteredUserController::class, 'update']);
 Route::post('UpdatePassword/{user}', [RegisteredUserController::class, 'updatePassword']);
 Route::get('logout', [RegisteredUserController::class, 'destroy']);
+Route::get("review-courses",[CourseController::class,"reviewCourses"]);
+Route::get("student-courses",[CourseController::class,"studentCourses"]);
+Route::get("DestroyCourseAdmin/{course}",[CourseController::class,"destroyAdmin"]);
+
 
 Route::get('Teacher-Home', [TeacherController::class,'index'])->middleware('authenticated');
 Route::get('teacher-courses', [CourseController::class,'teacherCourses'])->middleware('authenticated');
@@ -77,8 +81,9 @@ Route::get('teacher-faq', [TeacherController::class,'faq'])->middleware('authent
 Route::get('teacher-file-manager', [TeacherController::class,'fileManager'])->middleware('authenticated');
 Route::get('teacher-reviews', [CourseController::class,'teacherCoursesForReviews'])->middleware('authenticated');
 Route::get('create-course', [TeacherController::class,'createCourse'])->middleware('authenticated');
-Route::post("store-course/{user}",[CourseController::class,"store"]);
-Route::get("DestroyCourse/{course}",[CourseController::class,"destroyTeacher"]);
+Route::post("store-course/{user}",[CourseController::class,"store"])->middleware('authenticated');
+Route::get("DestroyCourse/{course}",[CourseController::class,"destroyTeacher"])->middleware('authenticated');
+Route::get('view-reviews/{id}', [ReviewController::class,'teacherReviews'])->middleware('authenticated');
 
 
 Route::get('/', [PageController::class, 'home']);
