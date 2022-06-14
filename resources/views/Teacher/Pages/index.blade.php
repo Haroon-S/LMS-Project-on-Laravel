@@ -3,6 +3,7 @@
 @section('title','Home')
 
 @section('contents')
+
     <!-- begin app -->
     <div class="app">
         <!-- begin app-wrap -->

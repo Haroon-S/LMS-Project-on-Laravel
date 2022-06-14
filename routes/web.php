@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\VideoController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\Auth\RegisteredUserController;
@@ -36,7 +37,7 @@ Route::get('Home', [AdminController::class,'index'])->middleware('authenticated'
 Route::get('app-chat', [AdminController::class,'appChat'])->middleware('authenticated');
 Route::get('calendar-full', [AdminController::class,'calendarFull'])->middleware('authenticated');
 Route::get('calendar-list', [AdminController::class,'calendarList'])->middleware('authenticated');
-Route::get('admin-courses', [CourseController::class,'index'])->middleware('authenticated');
+Route::get('admin-courses', [CourseController::class,'adminCourses'])->middleware('authenticated');
 Route::get('admin-requests', [AdminController::class,'indexrequests'])->middleware('authenticated');
 Route::get('admin-reviews/{id}', [ReviewController::class,'index'])->middleware('authenticated');
 Route::get('admin-students', [AdminController::class,'indexStudents'])->middleware('authenticated');
@@ -88,6 +89,18 @@ Route::post("store-course/{user}",[CourseController::class,"store"])->middleware
 Route::get("DestroyCourse/{course}",[CourseController::class,"destroyTeacher"])->middleware('authenticated');
 Route::get('view-reviews/{id}', [ReviewController::class,'teacherReviews'])->middleware('authenticated');
 Route::get('course-single/{course}', [CourseController::class, 'show']);
+Route::get("EditCourse/{course}",[CourseController::class,"edit"])->middleware('authenticated');
+Route::post("update-course/{course}",[CourseController::class,"update"])->middleware('authenticated');
+Route::get("video-page/{course}",[VideoController::class,"videoPage"])->middleware('authenticated');
+Route::get("upload-video/{course}",[VideoController::class,"index"])->middleware('authenticated');
+Route::post("store-video/{course}",[VideoController::class,"store"])->middleware('authenticated');
+Route::get("destroy-video/{video}",[VideoController::class,"destroy"])->middleware('authenticated');
+Route::get("edit-video/{video}",[VideoController::class,"edit"])->middleware('authenticated');
+Route::post("update-video/{video}",[VideoController::class,"update"])->middleware('authenticated');
+
+
+
+
 
 Route::get("enroll-course/{course}",[CourseController::class,"enrollCourse"]);
 Route::get('show', [CourseController::class,'courseShow']);

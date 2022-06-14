@@ -194,6 +194,14 @@ readers do not read off random characters that represent icons */
   position: fixed;
 }
 
+#uploadBtn
+{
+  font-size: 16px;
+  background-color: turquoise;
+  margin-left: 86%;
+  color: black;
+  padding: 5px;
+}
 .fa-500px:before {
   content: "\f26e"; }
 

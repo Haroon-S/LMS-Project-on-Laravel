@@ -18,6 +18,7 @@ class CreateVideosTable extends Migration
             $table->string('video_title');
             $table->string('video_description');
             $table->string('video_file');
+            $table->string('video_thumbnail');
             $table->unsignedBigInteger('course_id');
             $table->foreign('course_id')->references('id')->on('courses');
             $table->timestamps();
