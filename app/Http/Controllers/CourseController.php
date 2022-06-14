@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use App\Models\User;
+use App\Models\Review;
 use App\Models\Enrollment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -26,6 +27,12 @@ class CourseController extends Controller
         $no_students = User::whereRoleIs('student')->count();
         return view('pages/home', compact("courses", "students","no_students"));
         // return view('pages/home');
+    }
+
+    public function adminCourses()
+    {
+        $courses = Course::all();
+        return view ("Admin/Pages/index-courses", compact("courses"));
     }
 
     public function teacherCourses()
@@ -142,7 +149,7 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
-        //
+        return view("Teacher/Pages/edit-course", compact('course'));
     }
 
     /**
@@ -154,7 +161,27 @@ class CourseController extends Controller
      */
     public function update(Request $request, Course $course)
     {
-        //
+        $data = $request->validate([
+            "course_title" => "required|max:50",
+            "course_category" => "required",
+            "course_description" => "required",
+            "thumbnail" => "required",
+        ]);
+
+        if( $request->file("thumbnail") ){
+
+            //delete old file from dir
+            File::delete('Thumbnails/'.$course->thumbnail);
+
+            // put new file in dir
+            $file = $request->file('thumbnail');
+            $data['thumbnail'] = Str::uuid(). '.' .$file->getClientOriginalExtension();
+            $file->move('Thumbnails/', $data['thumbnail']);
+        }
+
+        $course->update($data);
+
+        return redirect(url('teacher-courses'));
     }
 
     /**
