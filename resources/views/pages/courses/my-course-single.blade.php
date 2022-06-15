@@ -87,7 +87,7 @@
 </div>
 <div class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
-<li><a  href="home">Home</a>
+<li><a  href="/home">Home</a>
 <ul class="dropdown-menu menu-bg wbg">
 <li>
 <div class="ttmenu-content">
@@ -119,7 +119,7 @@
 </li>
 </ul>
 </li>
-<li><a href="about">About</a></li>
+<li><a href="/about">About</a></li>
 <li class="dropdown ttmenu-half"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Courses <b class="fa fa-angle-down"></b></a>
 <ul class="dropdown-menu">
 <li>
@@ -128,24 +128,24 @@
 <div class="col-md-6">
 <div class="box">
 <ul>
-<li><a href="course-list">Courses List</a></li>
-<li><a href="course-grid">Courses Grid</a></li>
-<li><a href="course-filterable">Courses Filterable</a></li>
-<li><a href="course-single">Single Course</a></li>
-<li><a href="course-quiz">Take a Quiz</a></li>
-<li><a href="course-achievements">Achievements</a></li>
+<li><a href="/course-list">Courses List</a></li>
+<li><a href="/course-grid">Courses Grid</a></li>
+<li><a href="/course-filterable">Courses Filterable</a></li>
+<li><a href="/course-single">Single Course</a></li>
+<li><a href="/course-quiz">Take a Quiz</a></li>
+<li><a href="/course-achievements">Achievements</a></li>
 </ul>
 </div>
 </div>
 <div class="col-md-6">
 <div class="box">
 <ul>
-<li><a href="course-instructors">Course Instructors</a></li>
-<li><a href="forums">Community Forums</a></li>
-<li><a href="course-login">Login & Register</a></li>
-<li><a href="course-account">Edit Your Account</a></li>
-<li><a href="course-testimonials">Happy Students</a></li>
-<li><a href="course-faqs">Friendly Asked Questions</a></li>
+<li><a href="/course-instructors">Course Instructors</a></li>
+<li><a href="/forums">Community Forums</a></li>
+<li><a href="/course-login">Login & Register</a></li>
+<li><a href="/course-account">Edit Your Account</a></li>
+<li><a href="/course-testimonials">Happy Students</a></li>
+<li><a href="/course-faqs">Friendly Asked Questions</a></li>
 </ul>
 </div>
 </div>
@@ -298,9 +298,9 @@
 <p class="course-forum">Course Forum : <a href="#" title="">Web Designers</a></p>
 </div>
 <div class="course-button">
-<form action="/enroll-course/{{$course->id}}" method="get" enctype="multipart/form-data">
+<form action="" method="get" enctype="multipart/form-data">
           @csrf
-          <button class="btn btn-primary btn-block" type="submit">TAKE THIS COURSE</button>
+          <button class="btn btn-primary btn-block" type="submit">Give Review</button>
         </form>
 </div>
 </div>

@@ -22,11 +22,29 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $courses = Course::all();
-        $students = User::whereRoleIs('student')->get();
-        $no_students = User::whereRoleIs('student')->count();
-        return view('pages/home', compact("courses", "students","no_students"));
-        // return view('pages/home');
+
+        if (Auth::check()) {
+             $sid = Auth::user()->id;
+        $my_courses = DB::table('enrollments')
+        ->join('courses', 'enrollments.course_id', '=', 'courses.id')
+        ->where('enrollments.user_id', $sid)
+        ->get();
+$courses = Course::all();
+$students = User::whereRoleIs('student')->get();
+$no_students = User::whereRoleIs('student')->count();
+return view('pages/home', compact("courses", "students","no_students","my_courses"));
+        }
+        else{
+            // $sid = Auth::user()->id;
+            $my_courses = DB::table('enrollments')
+            ->join('courses', 'enrollments.course_id', '=', 'courses.id')
+            ->where('enrollments.user_id', 1)
+            ->get();
+    $courses = Course::all();
+    $students = User::whereRoleIs('student')->get();
+    $no_students = User::whereRoleIs('student')->count();
+    return view('pages/home', compact("courses", "students","no_students","my_courses"));
+        }
     }
 
     public function adminCourses()
@@ -120,15 +138,31 @@ class CourseController extends Controller
         $courses = Course::all();
         return view('pages/courses/course-single', compact("course","courses"));
     }
+    public function myShow(Course $course)
+    {
+        $courses = Course::all();
+        return view('pages/courses/my-course-single', compact("course","courses"));
+    }
     
     public function enrollCourse(Course $course)
     {
        
-            $tc = $course->id;
-            $ts = Auth::user()->id;
-            echo $ts;
-            echo $tc;
-            return view("show-course");
+        Enrollment::create([
+            "course_id" => $course->id,
+            'user_id' => Auth::user()->id
+        ]);
+
+
+        $cid = $course->id;
+
+        Course::where('id',$cid)->increment('number_of_students',1);
+
+
+            // $tc = $course->id;
+            // $ts = Auth::user()->id;
+            // echo $ts;
+            // echo $tc;
+            return redirect(url("home"));
     }
 
     public function q_t(Course $course)
@@ -138,6 +172,16 @@ class CourseController extends Controller
 
     public function showCourse()
     {
+        $sid = Auth::user()->id;
+        // for ($x = 0; $x <= 10; $x++) {
+        //     echo $sid ;
+        //   }
+        echo $sid;
+        $my_course = DB::table('enrollments')
+                ->join('courses', 'enrollments.course_id', '=', 'courses.id')
+                ->where('enrollments.user_id', $sid)
+                ->get();
+                echo $my_course; 
         return view("show-course");
     }
 
@@ -150,6 +194,14 @@ class CourseController extends Controller
     public function edit(Course $course)
     {
         return view("Teacher/Pages/edit-course", compact('course'));
+    }
+    
+    
+    
+    public function myCourses(Course $course)
+    {
+        $sid = Auth::user()->id;
+        return view("show-course");
     }
 
     /**
@@ -206,6 +258,7 @@ class CourseController extends Controller
         $course->delete();
         return redirect(url('admin-courses'));
     }
+
 
     public function destroyTeacher(Course $course)
     {
