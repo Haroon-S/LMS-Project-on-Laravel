@@ -43,7 +43,7 @@
 
 @forelse ($courses as $key=>$course)
 <li>
-<a href="single-course/{{$course->id}}" title=""><img class="img-thumbnail" src="Thumbnails/{{$course->thumbnail}}" alt=""></a>
+<a href="course-single/{{$course->id}}" title=""><img class="img-thumbnail" src="Thumbnails/{{$course->thumbnail}}" alt=""></a>
 </li>
 @empty
 

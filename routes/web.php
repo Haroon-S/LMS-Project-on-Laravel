@@ -89,6 +89,7 @@ Route::post("store-course/{user}",[CourseController::class,"store"])->middleware
 Route::get("DestroyCourse/{course}",[CourseController::class,"destroyTeacher"])->middleware('authenticated');
 Route::get('view-reviews/{id}', [ReviewController::class,'teacherReviews'])->middleware('authenticated');
 Route::get('course-single/{course}', [CourseController::class, 'show']);
+Route::get('my-course-single/{course}', [CourseController::class, 'myShow']);
 Route::get("EditCourse/{course}",[CourseController::class,"edit"])->middleware('authenticated');
 Route::post("update-course/{course}",[CourseController::class,"update"])->middleware('authenticated');
 Route::get("video-page/{course}",[VideoController::class,"videoPage"])->middleware('authenticated');

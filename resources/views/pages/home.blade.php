@@ -133,16 +133,17 @@
 
         <div id="owl-featured" class="owl-custom">
 
-            @forelse ($courses as $key=>$course)
+        
+            @forelse ($my_courses as $key=>$my_course)
             <div class="owl-featured">
                 <div class="shop-item-list entry">
                     <div class="">
-                        <img src="Thumbnails/{{$course->thumbnail}}" alt="">
+                        <img src="Thumbnails/{{$my_course->thumbnail}}" alt="">
                         <div class="magnifier">
                         </div>
                     </div>
                     <div class="shop-item-title clearfix">
-                        <h4><a href="QT/{{$course->id}}">{{$course->course_title}}</a></h4>
+                        <h4><a href="my-course-single/{{$my_course->id}}">{{$my_course->course_title}}</a></h4>
                         <div class="shopmeta">
                             <span class="pull-left">2 students</span>
                             <div class="rating pull-right">
@@ -155,8 +156,8 @@
                         </div>
                     </div>
                     <div class="visible-buttons">
-                        <a title="Add to Cart" href="page-shop-cart/{{$course->id}}"><span class="fa fa-cart-arrow-down"></span></a>
-                        <a title="Read More" href="course-single/{{$course->id}}"><span class="fa fa-search"></span></a>
+                        <a title="Add to Cart" href="page-shop-cart/{{$my_course->id}}"><span class="fa fa-cart-arrow-down"></span></a>
+                        <a title="Read More" href="course-single/{{$my_course->id}}"><span class="fa fa-search"></span></a>
                     </div>
                 </div>
             </div>
@@ -209,7 +210,7 @@
 </div>
 </div>
 <div class="shop-item-title clearfix">
-<h4><a href="QT/{{$course->id}}">{{$course->course_title}}</a></h4>
+<h4><a href="course-single/{{$course->id}}">{{$course->course_title}}</a></h4>
 <div class="shopmeta">
 <span class="pull-left">12 Student</span>
 <div class="rating pull-right">
