@@ -30,9 +30,10 @@ class CourseController extends Controller
         ->where('enrollments.user_id', $sid)
         ->get();
 $courses = Course::all();
+$no_courses = $courses->count();
 $students = User::whereRoleIs('student')->get();
 $no_students = User::whereRoleIs('student')->count();
-return view('pages/home', compact("courses", "students","no_students","my_courses"));
+return view('pages/home', compact("courses", "students","no_students","my_courses","no_courses"));
         }
         else{
             // $sid = Auth::user()->id;
@@ -41,9 +42,10 @@ return view('pages/home', compact("courses", "students","no_students","my_course
             ->where('enrollments.user_id', 1)
             ->get();
     $courses = Course::all();
+    $no_courses = $courses->count();
     $students = User::whereRoleIs('student')->get();
     $no_students = User::whereRoleIs('student')->count();
-    return view('pages/home', compact("courses", "students","no_students","my_courses"));
+    return view('pages/home', compact("courses", "students","no_students","my_courses","no_courses"));
         }
     }
 
@@ -115,6 +117,25 @@ return view('pages/home', compact("courses", "students","no_students","my_course
         return redirect(url("teacher-courses"));
     }
 
+
+    public function courseReview(Request $request, Course $course)
+    {
+        $data = $request->validate([
+            "review_on_course" => "required"
+        ]);
+
+        Review::create([
+            "review_on_course" => $request->review_on_course,
+            "course_id" => $course->id,
+            "course_title" => $course->course_title,
+            'student_id' => Auth::user()->id,
+            'student_name' => Auth::user()->name,
+            'student_pic' => Auth::user()->picture,
+        ]);
+
+        return redirect(url("my-course-single/$course->id"));
+    }
+
     public function reviewCourses()
     {
         $courses=Course::all();
@@ -135,14 +156,23 @@ return view('pages/home', compact("courses", "students","no_students","my_course
      */
     public function show(Course $course)
     {
+        $cid = $course->id;
+        $videos = Course::find($cid)->videos;
+        $reviews = Course::find($cid)->reviews;
+        $reviews_count = Course::find($cid)->reviews->count();
         $courses = Course::all();
-        return view('pages/courses/course-single', compact("course","courses"));
+        return view('pages/courses/course-single', compact("course","courses","videos","reviews","reviews_count"));
     }
     public function myShow(Course $course)
     {
+        $cid = $course->id;
+        $videos = Course::find($cid)->videos;
+        $reviews = Course::find($cid)->reviews;
+        $reviews_count = Course::find($cid)->reviews->count();
         $courses = Course::all();
-        return view('pages/courses/my-course-single', compact("course","courses"));
+        return view('pages/courses/my-course-single', compact("course","courses","videos","reviews","reviews_count"));
     }
+    
     
     public function enrollCourse(Course $course)
     {
@@ -173,15 +203,11 @@ return view('pages/home', compact("courses", "students","no_students","my_course
     public function showCourse()
     {
         $sid = Auth::user()->id;
-        // for ($x = 0; $x <= 10; $x++) {
-        //     echo $sid ;
-        //   }
-        echo $sid;
-        $my_course = DB::table('enrollments')
-                ->join('courses', 'enrollments.course_id', '=', 'courses.id')
-                ->where('enrollments.user_id', $sid)
-                ->get();
-                echo $my_course; 
+        $videos = Course::find(2)->videos;
+ 
+        foreach ($videos as $video) {
+            echo $video->video_title;
+        } 
         return view("show-course");
     }
 

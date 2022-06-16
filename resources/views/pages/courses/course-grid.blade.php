@@ -45,19 +45,12 @@
 <div class="shop-item-title clearfix">
 <h4><a href="course-single/{{$course->id}}">{{$course->course_title}}</a></h4>
 <div class="shopmeta">
-<span class="pull-left">12 Student</span>
-<div class="rating pull-right">
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-</div>
+<span class="pull-left">Students : {{$course->number_of_students}}</span>
 </div>
 </div>
 <div class="visible-buttons">
-<a title="Add to Cart" href="page-shop-cart"><span class="fa fa-cart-arrow-down"></span></a>
-<a title="Read More" href="course-single"><span class="fa fa-search"></span></a>
+<a title="Add to Cart" href="course-single/{{$course->id}}"><span class="fa fa-cart-arrow-down"></span></a>
+<a title="Read More" href="course-single/{{$course->id}}"><span class="fa fa-search"></span></a>
 </div>
 </div>
 </div>

@@ -22,6 +22,7 @@ class CreateReviewsTable extends Migration
             $table->unsignedBigInteger('student_id');
             $table->foreign('student_id')->references('id')->on('users');
             $table->string('student_name');
+            $table->string('student_pic');
             $table->timestamps();
         });
     }

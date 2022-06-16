@@ -145,7 +145,7 @@
                     <div class="shop-item-title clearfix">
                         <h4><a href="my-course-single/{{$my_course->id}}">{{$my_course->course_title}}</a></h4>
                         <div class="shopmeta">
-                            <span class="pull-left">2 students</span>
+                            <span class="pull-left">Students : {{$my_course->number_of_students}}</span>
                             <div class="rating pull-right">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -212,7 +212,7 @@
 <div class="shop-item-title clearfix">
 <h4><a href="course-single/{{$course->id}}">{{$course->course_title}}</a></h4>
 <div class="shopmeta">
-<span class="pull-left">12 Student</span>
+<span class="pull-left">Students : {{$course->number_of_students}}</span>
 <div class="rating pull-right">
 <i class="fa fa-star"></i>
 <i class="fa fa-star"></i>
@@ -481,7 +481,7 @@
             </div>
             <div class="col-md-4 col-sm-6">
                 <div class="feature-list">
-                    <i class="stat-count">450</i>
+                    <i class="stat-count">{{$no_courses}}</i>
                     <p><strong>Active Courses</strong></p>
                     <p>Lorem ipsum m dolor sit amet, consectetur adipiing elit.dolor sit amet, consectetur adipiing elit. Integer lorem quam..</p>
                 </div>
@@ -527,15 +527,11 @@
                         <div class="post-meta">
                             <span>
                                 <i class="fa fa-user"></i>
-                                <a href="#">John</a>
+                                <a href="#">{{$course->teacher_name}}</a>
                             </span>
                             <span>
                                 <i class="fa fa-tag"></i>
                                 <a href="#">Marketing</a>
-                            </span>
-                            <span>
-                                <i class="fa fa-comments"></i>
-                                <a href="#">19 Reviews</a>
                             </span>
                         </div>
                     </div>
@@ -646,7 +642,7 @@
             <div class="col-lg-4 col-md-4 col-sm-12">
                 <div class="testimonial">
                     <!-- <h5 class="card-title d-none">{{$key+1}}</h5> -->
-                    <img class="alignleft img-circle" src="upload/xstudent_01.png.pagespeed.ic.756JwMcqdq.png" alt="">
+                    <img class="alignleft img-circle" src="Pictures/{{$students->picture}}" alt="">
                     <p>Lorem Ipsum is simply dummy text of the printing and industry. </p>
                     <div class="testimonial-meta">
                         <h4>{{$students->name}}</h4>

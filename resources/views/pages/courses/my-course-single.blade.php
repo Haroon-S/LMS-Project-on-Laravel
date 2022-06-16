@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="/A.fonts%2c%2c_font-awesome-4.3.0%2c%2c_css%2c%2c_font-awesome.min.css%2bcss%2c%2c_bootstrap.css%2bcss%2c%2c_animate.css%2cMcc.kSNwpaaMDX.css.pagespeed.cf.w2G3xGgFf0.css"/>
     <link rel="stylesheet" type="text/css" href="/css/A.menu.css.pagespeed.cf.0_hLwXzYkZ.css">
     <link rel="stylesheet" type="text/css" href="/css/A.carousel.css%2bbxslider.css%2cMcc.jgeTii-u52.css.pagespeed.cf.STKSIMl7GF.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/style2.css"/>
     <link rel="stylesheet" type="text/css" href="/A.style.css%2bcss%2c%2c_custom.css%2cMcc.HvWh1qoob-.css.pagespeed.cf.pWH5huNcWh.css"/>
 
 
@@ -287,23 +288,56 @@
 <a title="" href="#reviews">&nbsp; (3)</a></p>
 </div>
 <hr>
-<p class="course-student">Students : 21 Members </p>
+<p class="course-student">Students : {{$course->number_of_students}} Members </p>
 <hr>
 <p class="course-time">Perriod : 12 Month </p>
 <hr>
 <p class="course-prize">Prize : <i class="fa fa-trophy"></i> <i class="fa fa-certificate"></i> <i class="fa fa-shield"></i></p>
 <hr>
-<p class="course-instructors">Instructor : <a href="#" title=""><img src="upload/xstudent_01.png.pagespeed.ic.756JwMcqdq.png" class="img-circle" alt=""> {{$course->teacher_name}}</a></p>
+<p class="course-instructors">Instructor : <a href="#" title=""> {{$course->teacher_name}}</a></p>
 <hr>
 <p class="course-forum">Course Forum : <a href="#" title="">Web Designers</a></p>
 </div>
-<div class="course-button">
-<form action="" method="get" enctype="multipart/form-data">
-          @csrf
-          <button class="btn btn-primary btn-block" type="submit">Give Review</button>
-        </form>
+
+
+
+<div id="reviews" class="feedbacks">
+<p>
+<a class="btn btn-primary btn-block" role="button" data-toggle="collapse" href="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
+Give Reviews
+</a>
+</p>
+<div class="collapse" id="collapseExample1">
+<!-- <div class="well bg-dark"> -->
+<!-- <div class="media"> -->
+<div class="">
+                                        <form style="border: 1px solid rgba(16, 46, 46, 1);
+                                         background-color: rgba(16, 46, 46, 0.973);
+                                         border-radius: 5px;
+                                         padding: 20px;" id="algin-form" action="/course-review/{{$course->id}}" method="post" enctype="multipart/form-data">
+                                        @csrf   
+                                        <div class="form-group">
+                                                <h4 style="color: rgb(212, 208, 208);">Leave a Review</h4>
+                                                <label for="message">Message</label>
+                                                <textarea name="review_on_course" id="" msg cols="30" rows="5" class="form-control" style="background-color: black;"></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <button type="submit" id="post" class="btn">Post Review</button>
+                                            </div>
+                                        </form>
+                                    </div>
+<!-- </div> -->
+
+
+
+<!-- </div> -->
+</div>
+
+
 </div>
 </div>
+
+
 <div id="course-content" class="col-md-8">
 <div class="course-description">
 <small>Course Status: <span>In Progress</span> </small>
@@ -323,12 +357,21 @@
 </tr>
 </thead>
 <tbody>
+
+@forelse ($videos as $key=>$video)
 <tr>
 <td><i class="fa fa-play-circle"></i></td>
-<td><a href="#">Introduction</a></td>
+<td><a href="/course-video/{{$video->id}}">{{$video->video_title}}</a></td>
 <td>12 Min</td>
 <td><i class="fa fa-check"></i></td>
 </tr>
+@empty
+<p>No Videos Found</p>
+@endforelse
+
+
+
+<!-- 
 <tr>
 <td><i class="fa fa-play-circle"></i></td>
 <td>Lesson One - What is Photoshop</td>
@@ -364,7 +407,11 @@
 <td><a href="course-quiz">Quiz Time - Your First Quiz</a></td>
 <td>31 Min</td>
 <td><i class="fa fa-close"></i></td>
-</tr>
+</tr> -->
+
+
+
+
 </tbody>
 </table>
 </div>
@@ -372,30 +419,28 @@
 <div id="reviews" class="feedbacks">
 <p>
 <a class="btn btn-default btn-block" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-What our customers said? (3 Feedbacks)
+What our customers said? ({{$reviews_count}} Reviews)
 </a>
 </p>
 <div class="collapse" id="collapseExample">
 <div class="well">
+
+@forelse ($reviews as $key=>$review)
 <div class="media">
 <div class="media-left">
 <a href="#">
-<img class="media-object" src="upload/xstudent_01.png.pagespeed.ic.756JwMcqdq.png" alt="Generic placeholder image">
+<img class="media-object" src="/Pictures/{{$review->student_pic}}" alt="Generic placeholder image">
 </a>
 </div>
 <div class="media-body">
-<h4 class="media-heading">John DOE</h4>
-<div class="rating">
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star"></i>
-<i class="fa fa-star-o"></i>
-</div>
-<p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+<h4 class="media-heading">{{$review->student_name}}</h4>
+<p>{{$review->review_on_course}}</p>
 </div>
 </div>
-<div class="media">
+@empty
+<p>No Reviews Found</p>
+@endforelse
+<!-- <div class="media">
 <div class="media-left">
 <a href="#">
 <img class="media-object" src="upload/xstudent_02.png.pagespeed.ic.y-PM-y4pVj.png" alt="Generic placeholder image">
@@ -430,7 +475,7 @@ What our customers said? (3 Feedbacks)
 </div>
 <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
 </div>
-</div>
+</div> -->
 </div>
 </div>
 </div>
@@ -458,7 +503,7 @@ What our customers said? (3 Feedbacks)
 <div class="shop-item-title clearfix">
 <h4><a href="/course-single/{{$course->id}}">{{$course->course_title}}</a></h4>
 <div class="shopmeta">
-<span class="pull-left">12 Student</span>
+<span class="pull-left">{{$course->number_of_students}} Student</span>
 <div class="rating pull-right">
 <i class="fa fa-star"></i>
 <i class="fa fa-star"></i>
@@ -488,6 +533,84 @@ What our customers said? (3 Feedbacks)
 </div>
 </section>
 
+
+<footer class="dark footer section">
+<div class="container">
+<div class="row">
+<div class="col-md-3 col-md-6 col-xs-12">
+<div class="widget">
+<div class="widget-title">
+<h4>About LearnPLUS</h4>
+<hr>
+</div>
+<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took...</p>
+<a href="#" class="btn btn-default">Read More</a>
+</div>
+</div>
+<div class="col-md-3 col-md-6 col-xs-12">
+<div class="widget">
+<div class="widget-title">
+<h4>Recent Tweets</h4>
+<hr>
+</div>
+<div class="twitter-widget">
+<ul class="latest-tweets">
+<li>
+<p><a href="#" title="">@Mark</a> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam.</p>
+<span>2 hours ago</span>
+</li>
+<li>
+<p><a href="#" title=""></a> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam.</p>
+<span>2 hours ago</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-3 col-md-6 col-xs-12">
+<div class="widget">
+<div class="widget-title">
+<h4>Popular Courses</h4>
+<hr>
+</div>
+
+
+<ul class="popular-courses">
+
+@forelse ($courses as $key=>$course)
+<li>
+<a href="course-single/{{$course->id}}" title=""><img class="img-thumbnail" src="/Thumbnails/{{$course->thumbnail}}" alt=""></a>
+</li>
+@empty
+
+@endforelse
+
+
+
+</ul>
+
+
+
+</div>
+</div>
+<div class="col-md-3 col-md-6 col-xs-12">
+<div class="widget">
+<div class="widget-title">
+<h4>Contact Details</h4>
+<hr>
+</div>
+<ul class="contact-details">
+<li><i class="fa fa-link"></i> <a href="#">www.yoursite.com</a></li>
+<li><i class="fa fa-envelope"></i> <a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
+<li><i class="fa fa-phone"></i> +90 123 45 67</li>
+<li><i class="fa fa-fax"></i> +90 123 45 68</li>
+<li><i class="fa fa-home"></i>  INC 22 Elizabeth Str. Melbourne. Victoria 8777.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</footer>
 
 
 
