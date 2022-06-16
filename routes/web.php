@@ -15,7 +15,7 @@ use App\Http\Controllers\PageController;
 |
 */
 
-Route::get('/', function () {
+Route::get('laravel', function () {
     return view('welcome');
 });
 
