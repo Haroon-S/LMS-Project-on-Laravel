@@ -80,7 +80,8 @@ class VideoController extends Controller
      */
     public function show(Video $video)
     {
-        //
+        $courses = Course::all();
+        return view('pages/courses/course-video', compact("video","courses"));
     }
 
     /**
