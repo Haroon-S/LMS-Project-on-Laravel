@@ -40,7 +40,7 @@ Route::get('calendar-list', [AdminController::class,'calendarList'])->middleware
 Route::get('admin-courses', [CourseController::class,'adminCourses'])->middleware('authenticated');
 Route::get('admin-requests', [AdminController::class,'indexrequests'])->middleware('authenticated');
 Route::get('admin-reviews/{id}', [ReviewController::class,'index'])->middleware('authenticated');
-Route::get('admin-students', [AdminController::class,'indexStudents'])->middleware('authenticated');
+Route::get('admin-students/{course}', [AdminController::class,'indexStudents'])->middleware('authenticated');
 Route::get('admin-teachers', [AdminController::class,'indexTeachers'])->middleware('authenticated');
 Route::get('mail-inbox', [AdminController::class,'mailInbox'])->middleware('authenticated');
 Route::get('maps-google', [AdminController::class,'mapsGoogle'])->middleware('authenticated');

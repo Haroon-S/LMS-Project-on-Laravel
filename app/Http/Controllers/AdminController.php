@@ -40,10 +40,15 @@ class AdminController extends Controller
     }
     public function indexStudents(Course $course)
     {
-        $users = DB::table('users')
-        ->leftJoin('enroll_courses', 'users.id', '=', 'enroll_course.user_id')
-        ->leftJoin('enroll_courses', 'enroll_course.course_id', '=', 'course.id')
+        $cid =  $course->id;
+        $users = DB::table('enrollments')
+        ->join('users', 'enrollments.user_id', '=', 'users.id')
+        ->where('enrollments.course_id', $cid)
         ->get();
+        // $users = DB::table('users')
+        // ->leftJoin('enroll_courses', 'users.id', '=', 'enroll_course.user_id')
+        // ->leftJoin('enroll_courses', 'enroll_course.course_id', '=', 'course.id')
+        // ->get();
         return view("Admin/Pages/index-students", compact("users"));
     }
     public function indexTeachers()

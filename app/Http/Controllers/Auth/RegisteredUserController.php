@@ -63,7 +63,7 @@ class RegisteredUserController extends Controller
         Auth::login($user);
       
         $user->attachRole($request->role_id);
-        //$user->attachRole('admin');
+        // $user->attachRole('admin');
 
         return redirect(RouteServiceProvider::HOME);
     }

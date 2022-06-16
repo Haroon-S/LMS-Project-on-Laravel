@@ -33,7 +33,7 @@
               <div class="hover-icon"><i class="fas fa-ellipsis-v"></i></div>
             </div>
             <div class="btns">
-              <a href="admin-students"><button type="button">View Students</button></a>
+              <a href="admin-students/{{$course->id}}"><button type="button">View Students</button></a>
             </div>
           </div>
         @empty

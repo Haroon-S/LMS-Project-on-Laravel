@@ -97,7 +97,7 @@
                                                     <td>
                                                         <div class="d-flex align-items-center">
                                                             <div class="bg-img mr-4">
-                                                                <img src="Pictures/{{$user->picture}}" class="img-fluid" alt="Clients-01">
+                                                                <img src="/Pictures/{{$user->picture}}" class="img-fluid" alt="Clients-01">
                                                             </div>
                                                             <p class="font-weight-bold">{{$user->name}}</p>
                                                         </div>
