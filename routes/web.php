@@ -65,6 +65,13 @@ Route::get("review-courses",[CourseController::class,"reviewCourses"]);
 Route::get("student-courses",[CourseController::class,"studentCourses"]);
 Route::get("DestroyCourseAdmin/{course}",[CourseController::class,"destroyAdmin"]);
 
+// ***************************** AI ChatBot Route*****************************************
+
+use App\Http\Controllers\BotManController;
+Route::match(['get', 'post'], 'botman', [BotManController::class, 'handle']);
+
+// ***************************** AI ChatBot Route*****************************************
+
 
 
 
