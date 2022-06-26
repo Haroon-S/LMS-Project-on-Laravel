@@ -10,6 +10,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\BotManController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,8 +68,9 @@ Route::get("DestroyCourseAdmin/{course}",[CourseController::class,"destroyAdmin"
 
 // ***************************** AI ChatBot Route*****************************************
 
-use App\Http\Controllers\BotManController;
+
 Route::match(['get', 'post'], 'botman', [BotManController::class, 'handle']);
+Route::match(['get', 'post'], 'botman-querry', [BotManController::class, 'handleQuerry']);
 
 // ***************************** AI ChatBot Route*****************************************
 
@@ -122,7 +124,7 @@ Route::get('home', [CourseController::class, 'index']);
 Route::get('/', [CourseController::class, 'index']);
 
 
-Route::get('QT/{course}', [CourseController::class, 'q_t']);
+Route::get('QT', [CourseController::class, 'q_t']);
 
 Route::get('about', [PageController::class, 'about']);
 

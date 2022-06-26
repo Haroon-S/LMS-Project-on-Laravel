@@ -62,7 +62,7 @@
 <script>
     var botmanWidget = {
 aboutText: 'Write Something',
-introMessage: "✋ Hi! I'm HSS"
+introMessage: "✋ Hi! My name is HSS. I'm an Artificial Intellegence robot, made for the sole purpose of helping you."
 };
 </script>
 
