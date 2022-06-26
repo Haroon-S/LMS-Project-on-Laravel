@@ -3,28 +3,6 @@
 @section('title','Courses')
 
 @section('contents')
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="Admin template that can be used to build dashboards for CRM, CMS, etc." />
-    <meta name="author" content="Potenza Global Solutions" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- app favicon -->
-    <link rel="shortcut icon" href="assets/img/favicon.ico">
-    <!-- google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <!-- plugin stylesheets -->
-    <link rel="stylesheet" type="text/css" href="assets/css/vendors.css" />
-    <!-- app style -->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/all.css">
-</head>
-
-<body>
     <!-- begin app -->
     <div class="app">
         <!-- begin app-wrap -->
@@ -45,11 +23,12 @@
           <!-- First Video Section -->
         <section class="video-section">
         @forelse($courses as $key=>$course)
+        @if(Auth::user()->id == $course->user_id)
           <div class="videos">
-            <a href="Thumbnails/{{$course->id}}"><div class="thumbnail"><img src="Thumbnails/{{$course->thumbnail}}" alt="thumb1"></div></a>
+            <a href="video-page/{{$course->id}}"><div class="thumbnail"><img src="Thumbnails/{{$course->thumbnail}}" alt="thumb1"></div></a>
             <div class="info">
               <div class="title">
-                <a href="VideosPage/{{$course->id}}"><h2 class="main-text">{{$course->course_title}}</h2></a>
+                <a href="video-page/{{$course->id}}"><h2 class="main-text">{{$course->course_title}}</h2></a>
                 <p class="sub-text">No. of Students: <span>{{$course->number_of_students}}</span></p>
               </div>
               <div class="hover-icon"><i class="fas fa-ellipsis-v"></i></div>
@@ -59,6 +38,7 @@
               <a href="DestroyCourse/{{$course->id}}"><button type="button">Delete</button></a>
             </div>
           </div>
+          @endif
         @empty
             <h3>No Data Found</h3>
         @endforelse
@@ -69,14 +49,4 @@
         <!-- end app-wrap -->
     </div>
     <!-- end app -->
-
-    <!-- plugins -->
-    <script src="assets/js/vendors.js"></script>
-
-    <!-- custom app -->
-    <script src="assets/js/app.js"></script>
-</body>
-
-
-</html>
 @endsection

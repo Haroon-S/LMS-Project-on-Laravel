@@ -1,14 +1,12 @@
 @extends('Admin/Layout/main')
 
-@section('title','Home')
+@section('title','Courses')
 
 @section('contents')
 <!DOCTYPE html>
 <html lang="en">
 
-
 <head>
-    <title>Mentor - Bootstrap 4 Admin Dashboard Template</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="Admin template that can be used to build dashboards for CRM, CMS, etc." />
@@ -22,6 +20,8 @@
     <link rel="stylesheet" type="text/css" href="assets/css/vendors.css" />
     <!-- app style -->
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.css">
 </head>
 
 <body>
@@ -38,78 +38,34 @@
                 </div>
             </div>
             <!-- end pre-loader -->
-            <!-- begin app-header -->
-            
-            <!-- end app-header-->
-            <!-- begin app-container -->
-            <div class="app-container">
-                <!-- begin app-main -->
-                <div class="app-main" id="main">
-                    <!-- begin container-fluid -->
-                    <div class="container-fluid">
-                            <div class="col-xxl-9 m-b-30">
-                                <div class="card card-statistics dating-contant h-100 mb-0">
-                                    <div class="card-header">
-                                        <h4 class="card-title">View all Courses</h4>
-                                    </div>
-                                    <div class="card-body pt-2 scrollbar scroll_dark" style="height: 300px">
-                                        <div class="table-responsive">
-                                            <table id="datatable-buttons" class="table table-striped">
-                                                <thead>
-                                                    <tr>
-                                                        <th class="border-top-0">No.</th>
-                                                        <th class="border-top-0">Course Id</th>
-                                                        <th class="border-top-0">Title</th>
-                                                        <th class="border-top-0">Teacher Name</th>
-                                                        <th class="border-top-0">No. of Students</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody class="text-muted">
-                                                    @forelse($courses as $key=>$course)
-                                                    <tr>
-                                                        <td>{{$key+1}}</td>
-                                                        <td>
-                                                            <p>{{$course->id}}</p>
-                                                        </td>
-                                                        <td>{{$course->course_title}}</td>
-                                                        <td>
-                                                            <label class="badge mb-0 badge-success-inverse">{{$course->teacher_name}}</label>
-                                                        </td>
-                                                        <td>{{$course->number_of_students}}</td>
-                                                        <td>
-                                                            <a href="DestroyCourse/{{$course->id}}"><i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="" data-original-title="Delete"></i></a>
-                                                        </td>
-                                                    </tr>
-                                                    @empty
-                                                        <h3>No Data Found</h3>
-                                                    @endforelse
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                    </div>
-                    <!-- end container-fluid -->
-                </div>
-                <!-- end app-main -->
+
+            <div id="content-container">
+          <div class="header-info"><h4>All Courses</h4></div>
+    
+          <!-- First Video Section -->
+        <section class="video-section">
+        @forelse($courses as $key=>$course)
+          <div class="videos">
+            <a href="Thumbnails/{{$course->id}}"><div class="thumbnail"><img src="Thumbnails/{{$course->thumbnail}}" alt="thumb1"></div></a>
+            <div class="info">
+              <div class="title">
+                <a href="VideosPage/{{$course->id}}"><h2 class="main-text">{{$course->course_title}}</h2></a>
+                <p class="sub-text">No. of Students: <span>{{$course->number_of_students}}</span></p>
+              </div>
+              <div class="hover-icon"><i class="fas fa-ellipsis-v"></i></div>
             </div>
-            <!-- end app-container -->
-            <!-- begin footer -->
-            
-            <!-- end footer -->
+            <div class="btns">
+              <a href="DestroyCourseAdmin/{{$course->id}}"><button type="button">Delete</button></a>
+            </div>
+          </div>
+        @empty
+            <h3>No Data Found</h3>
+        @endforelse
+          </section>
+      </div>
+
         </div>
         <!-- end app-wrap -->
     </div>
     <!-- end app -->
-
-    <!-- plugins -->
-    <script src="assets/js/vendors.js"></script>
-
-    <!-- custom app -->
-    <script src="assets/js/app.js"></script>
-</body>
-
-
-</html>
 @endsection

@@ -6,6 +6,7 @@ use App\Models\Review;
 use App\Models\Course;
 use App\Models\User;
 use Illuminate\Http\Request;
+use DB;
 
 class ReviewController extends Controller
 {
@@ -14,13 +15,18 @@ class ReviewController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        $reviews=Review::all();
-        $courses=Course::all();
-        $users=User::all();
-        return view("Admin/Pages/index-reviews", compact("reviews","courses","users"));
+        $reviews =Review::where('course_id', $id)->get();
+        return view("Admin/Pages/index-reviews", compact("reviews"));
     }
+
+    public function teacherReviews($id)
+    {
+        $reviews =Review::where('course_id', $id)->get();
+        return view("Teacher/Pages/view-reviews", compact("reviews"));
+    }
+
 
     /**
      * Show the form for creating a new resource.

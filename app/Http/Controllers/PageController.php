@@ -7,137 +7,138 @@ use App\Models\User;
 
 class PageController extends Controller
 {
-    public function home() {
-        return view('pages/home');
-    }
+    // public function home() {
+    //     return view('pages/home');
+    // }
 
     public function about() {
-        $uploadedCourse = Course::all();
-        return view('pages/about', compact("uploadedCourse"));
+        $courses = Course::all();
+        return view('pages/about', compact("courses"));
     }
 
     public function contact() {
-        $uploadedCourse = Course::all();
-        return view('pages/contact', compact("uploadedCourse"));
+        $courses = Course::all();
+        return view('pages/contact', compact("courses"));
     }
 
     public function blog() {
-        $uploadedCourse = Course::all();
-        return view('pages/blog/blog', compact("uploadedCourse"));
+        $courses = Course::all();
+        return view('pages/blog/blog', compact("courses"));
     }
     
     public function single() {
-        $uploadedCourse = Course::all();
-        return view('pages/blog/single', compact("uploadedCourse"));
+        $courses = Course::all();
+        return view('pages/blog/single', compact("courses"));
     }
 
     public function forums() {
-        $uploadedCourse = Course::all();
-        return view('pages/community/forums', compact("uploadedCourse"));
+        $courses = Course::all();
+        return view('pages/community/forums', compact("courses"));
     }
 
     public function course_account() {
-        $uploadedCourse = Course::all();
-        return view('pages/courses/course-account', compact("uploadedCourse"));
+        $courses = Course::all();
+        return view('pages/courses/course-account', compact("courses"));
     }
 
     public function course_achievements() {
-        $uploadedCourse = Course::all();
-        return view('pages/courses/course-achievements', compact("uploadedCourse"));
+        $courses = Course::all();
+        return view('pages/courses/course-achievements', compact("courses"));
     }
 
     public function course_faqs() {
-        $uploadedCourse = Course::all();
-        return view('pages/courses/course-faqs', compact("uploadedCourse"));
+        $courses = Course::all();
+        return view('pages/courses/course-faqs', compact("courses"));
     }
 
     public function course_filterable() {
-        $uploadedCourse = Course::all();
-        return view('pages/courses/course-filterable', compact("uploadedCourse"));
+        $courses = Course::all();
+        return view('pages/courses/course-filterable', compact("courses"));
     }
 
     public function course_grid() {
-        $uploadedCourse = Course::all();
-        return view('pages/courses/course-grid', compact("uploadedCourse"));
+        $courses = Course::all();
+        return view('pages/courses/course-grid', compact("courses"));
     }
 
     public function course_instructors() {
-        $uploadedCourse = Course::all();
-        return view('pages/courses/course-instructors', compact("uploadedCourse"));
+        $courses = Course::all();
+        return view('pages/courses/course-instructors', compact("courses"));
     }
 
     public function course_list() {
-        $uploadedCourse = Course::all();
-        return view('pages/courses/course-list', compact("uploadedCourse"));
+        $courses = Course::all();
+        return view('pages/courses/course-show', compact("courses"));
     }
 
     public function course_login() {
-        $uploadedCourse = Course::all();
-        return view('pages/courses/course-login', compact("uploadedCourse"));
+        $courses = Course::all();
+        return view('pages/courses/course-login', compact("courses"));
     }
 
     public function course_quiz() {
-        $uploadedCourse = Course::all();
-        return view('pages/courses/course-quiz', compact("uploadedCourse"));
+        $courses = Course::all();
+        return view('pages/courses/course-quiz', compact("courses"));
     }
 
-    public function course_single() {
-        $uploadedCourse = Course::all();
-        return view('pages/courses/course-single', compact("uploadedCourse"));
-    }
+    // public function course_single() {
+    //     // $courses = Course::all();
+    //     // return view('pages/courses/course-single', compact("courses"));
+    //     // return view('pages/courses/course-single');
+    // }
 
     public function course_testimonials() {
-        $uploadedCourse = Course::all();
-        return view('pages/courses/course-testimonials', compact("uploadedCourse"));
+        $courses = Course::all();
+        return view('pages/courses/course-testimonials', compact("courses"));
     }
 
     public function page_fullwidth() {
-        $uploadedCourse = Course::all();
-        return view('pages/features/page-fullwidth', compact("uploadedCourse"));
+        $courses = Course::all();
+        return view('pages/features/page-fullwidth', compact("courses"));
     }
 
     public function page_pricing() {
-        $uploadedCourse = Course::all();
-        return view('pages/features/page-pricing', compact("uploadedCourse"));
+        $courses = Course::all();
+        return view('pages/features/page-pricing', compact("courses"));
     }
 
     public function page_services() {
-        $uploadedCourse = Course::all();
-        return view('pages/features/page-services', compact("uploadedCourse"));
+        $courses = Course::all();
+        return view('pages/features/page-services', compact("courses"));
     }
 
     public function page_shop_cart() {
-        $uploadedCourse = Course::all();
-        return view('pages/features/page-shop-cart', compact("uploadedCourse"));
+        $courses = Course::all();
+        return view('pages/features/page-shop-cart', compact("courses"));
     }
 
     public function page_shop_single_alt() {
-        $uploadedCourse = Course::all();
-        return view('pages/features/page-shop-single-alt', compact("uploadedCourse"));
+        $courses = Course::all();
+        return view('pages/features/page-shop-single-alt', compact("courses"));
     }
 
     public function page_shop_single() {
-        $uploadedCourse = Course::all();
-        return view('pages/features/page-shop-single', compact("uploadedCourse"));
+        $courses = Course::all();
+        return view('pages/features/page-shop-single', compact("courses"));
     }
 
     public function page_shop() {
-        $uploadedCourse = Course::all();
-        return view('pages/features/page-shop', compact("uploadedCourse"));
+        $courses = Course::all();
+        return view('pages/features/page-shop', compact("courses"));
     }
 
     public function page_shortcodes() {
-        $uploadedCourse = Course::all();
-        return view('pages/features/page-shortcodes', compact("uploadedCourse"));
+        $courses = Course::all();
+        return view('pages/features/page-shortcodes', compact("courses"));
     }
 
     public function page_sidebar() {
-        $uploadedCourse = Course::all();
-        return view('pages/features/page-sidebar', compact("uploadedCourse"));
+        $courses = Course::all();
+        return view('pages/features/page-sidebar', compact("courses"));
     }
 
     public function page_typography() {
-        $uploadedCourse = Course::all();
-        return view('pages/features/page-typography', compact("uploadedCourse"));
+        $courses = Course::all();
+        return view('pages/features/page-typography', compact("courses"));
     }
 }

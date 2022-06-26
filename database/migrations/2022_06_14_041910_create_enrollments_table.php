@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEnrolmentControllersTable extends Migration
+class CreateEnrollmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateEnrolmentControllersTable extends Migration
      */
     public function up()
     {
-        Schema::create('enrolment_controllers', function (Blueprint $table) {
+        Schema::create('enrollments', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('role_id');
-            $table->foreign('role_id')->references('id')->on('roles');
+            $table->unsignedBigInteger('course_id');
+            $table->foreign('course_id')->references('id')->on('courses');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
@@ -30,6 +30,6 @@ class CreateEnrolmentControllersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('enrolment_controllers');
+        Schema::dropIfExists('enrollments');
     }
 }
