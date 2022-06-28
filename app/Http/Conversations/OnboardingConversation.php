@@ -57,6 +57,12 @@ class OnboardingConversation extends Conversation
           elseif ($querry == "i want to know the number of student") {
             $this->noOfStudents();
           }
+          elseif ($querry == "i want to know the number of videos") {
+            $this->noOfVideos();
+          }
+          elseif ($querry == "i want to know the number of reviews") {
+            $this->noOfReviews();
+          }
           else 
           {
             $this->say("Querry not defined...");
@@ -82,6 +88,28 @@ class OnboardingConversation extends Conversation
           $cname = $answer->getText();
           $no_student = DB::table('courses')->where('course_title', $cname)->first();
           $this->say('🧐! The students enroll in course "'.$cname .'" are : '.  $no_student->number_of_students);
+          $this->askQuestion();
+        });
+    }
+
+    public function noOfVideos()
+      {
+         $this->ask('What is Course Name? 🔮', function(Answer $answer) {
+          $cname = $answer->getText();
+          $cid = DB::table('courses')->where('course_title', $cname)->first();
+          $no_videos = Course::find($cid->id)->videos->count();
+          $this->say('🧐! The number of videos in course "'.$cname .'" are : '.  $no_videos);
+          $this->askQuestion();
+        });
+    }
+
+    public function noOfReviews()
+      {
+         $this->ask('What is Course Name? 🔮', function(Answer $answer) {
+          $cname = $answer->getText();
+          $cid = DB::table('courses')->where('course_title', $cname)->first();
+          $no_reviews = Course::find($cid->id)->reviews->count();
+          $this->say('🧐! The number of Reviews on course "'.$cname .'" are : '.  $no_reviews);
           $this->askQuestion();
         });
     }
